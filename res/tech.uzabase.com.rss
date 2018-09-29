@@ -1,0 +1,834 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+  <channel>
+    <title>UZABASE Tech Blog</title>
+    <link>http://tech.uzabase.com/</link>
+    <description>株式会社ユーザベースの技術チームブログです。 主に週次の持ち回りLTやセミナー・イベント情報について書きます。</description>
+    <lastBuildDate>Thu, 02 Jul 2015 20:03:56 +0900</lastBuildDate>
+    <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+    <generator>Hatena::Blog</generator>
+    
+      
+        <item>
+          <title>ウェブサービスの品質保証をお弁当作りに例えたら</title>
+          <link>http://tech.uzabase.com/entry/2015/07/02/200356</link>
+          <description>&lt;p&gt;初めまして。QA（Quality Assurance）を担当しております、えがさ（仮名）と申します。&lt;br /&gt;
+QAエンジニアとして、主にBtoC向けWebサービスサイトや、プリンタ、&lt;br /&gt;
+携帯電話などのテスティングや、雑誌の原稿作成のお手伝いなどをしておりました。&lt;br /&gt;
+ユーザベースに参加してからだいたい半年になります。&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;span style=&quot;font-size: 150%&quot;&gt;&lt;b&gt;SPEEDAの簡単な概要&lt;/b&gt;&lt;br /&gt;&lt;/span&gt;
+&lt;br /&gt;
+私は、SPEEDAのWebサイト部分がメインの担当ですが、SPEEDAとは。&lt;br /&gt;
+一言で表すと、「企業情報などを多角的に取り出せるデータベース」です。&lt;br /&gt;
+お客様がSPEEDAを活用して新たな価値を生み出すための&lt;br /&gt;
+ベースを支えるのがミッションです。&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;span style=&quot;font-size: 150%&quot;&gt;&lt;b&gt;SPEEDAって・・・。&lt;/b&gt;&lt;br /&gt;&lt;/span&gt;
+&lt;br /&gt;
+このお仕事をして製品を触るうちに、私はあることを思いつきました。&lt;br /&gt;
+SPEEDAって・・・まるでお弁当みたいだな、と。&lt;br /&gt;
+&lt;span itemscope itemtype=&quot;http://schema.org/Photograph&quot;&gt;&lt;img src=&quot;http://cdn-ak.f.st-hatena.com/images/fotolife/u/uzabase/20150630/20150630113418.png&quot; alt=&quot;f:id:uzabase:20150630113418p:plain&quot; title=&quot;f:id:uzabase:20150630113418p:plain&quot; class=&quot;hatena-fotolife&quot; itemprop=&quot;image&quot;&gt;&lt;/span&gt;&lt;br /&gt;
+&lt;span style=&quot;color: #00cc00&quot;&gt;
+お客様にお出しするためのお弁当箱：インフラ　があり&lt;br /&gt;
+お客様にコアバリューを提供するデータ：主食　があり&lt;br /&gt;
+データをおいしく加工するためのおかず：Webサイト　があり。&lt;br /&gt;
+&lt;/span&gt;
+全部がそろって活用できる。&lt;br /&gt;
+&lt;br /&gt;
+しかしお弁当は温かいほうがよりおいしくいただけます。&lt;br /&gt;
+ホットな情報には賞味期限もあります。&lt;br /&gt;
+そのためにアジャイルでの開発が行われています。&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;span style=&quot;font-size: 150%&quot;&gt;&lt;b&gt;と　こ　ろ　が&lt;/b&gt;&lt;br /&gt;&lt;/span&gt;
+&lt;br /&gt;
+アジャイルのQAはウォーターフォールの開発とは&lt;br /&gt;
+発想が真逆になることもあり。&lt;br /&gt;
+最初は目が点になることも多々ありました。&lt;br /&gt;
+&lt;br /&gt;
+見る間にリリースされるスケジュール感。&lt;br /&gt;
+クライテリアの基準。&lt;br /&gt;
+&lt;br /&gt;
+IEEE829?　ISO9001?&lt;br /&gt;
+既存のモデルはアジャイルにそのまま適用できません。&lt;br /&gt;
+&lt;br /&gt;
+できればテストケースも使いまわしたい。&lt;br /&gt;
+漏れなく効率よくまわしたい。&lt;br /&gt;
+&lt;br /&gt;
+しかし納期と品質という相反する要素をどうやって折り合いを付けるのか？&lt;br /&gt;
+のんびりしていると冷めたおいしくないお弁当になってしまいます。&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;span style=&quot;font-size: 150%&quot;&gt;&lt;b&gt;残念なお弁当の一例&lt;/b&gt;&lt;br /&gt;&lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span itemscope itemtype=&quot;http://schema.org/Photograph&quot;&gt;&lt;img src=&quot;http://cdn-ak.f.st-hatena.com/images/fotolife/u/uzabase/20150623/20150623124057.png&quot; alt=&quot;f:id:uzabase:20150623124057p:plain&quot; title=&quot;f:id:uzabase:20150623124057p:plain&quot; class=&quot;hatena-fotolife&quot; itemprop=&quot;image&quot;&gt;&lt;/span&gt;ケンカでもしましたか？&lt;br /&gt;
+&lt;span itemscope itemtype=&quot;http://schema.org/Photograph&quot;&gt;&lt;img src=&quot;http://cdn-ak.f.st-hatena.com/images/fotolife/u/uzabase/20150623/20150623124258.png&quot; alt=&quot;f:id:uzabase:20150623124258p:plain&quot; title=&quot;f:id:uzabase:20150623124258p:plain&quot; class=&quot;hatena-fotolife&quot; itemprop=&quot;image&quot;&gt;&lt;/span&gt;お弁当にする意味が・・・。&lt;br /&gt;
+&lt;span itemscope itemtype=&quot;http://schema.org/Photograph&quot;&gt;&lt;img src=&quot;http://cdn-ak.f.st-hatena.com/images/fotolife/u/uzabase/20150623/20150623124520.png&quot; alt=&quot;f:id:uzabase:20150623124520p:plain&quot; title=&quot;f:id:uzabase:20150623124520p:plain&quot; class=&quot;hatena-fotolife&quot; itemprop=&quot;image&quot;&gt;&lt;/span&gt;ゼリーを弁当と言い張る弱さ。&lt;br /&gt;
+&lt;br /&gt;
+・・・こんなお弁当を出荷するわけにはいきません。&lt;br /&gt;
+&lt;br /&gt;
+そこで、まだ和書では少ないアジャイルQAの本や各種勉強会などで勉強を進めつつ&lt;br /&gt;
+（KindlePCが日本でも使えるようになったので洋書の&lt;br /&gt;
+　QA本が買いやすくなりました！これは嬉しい。）&lt;br /&gt;
+既存のモデルをSPEEDA向けにアレンジして以下のセットを&lt;br /&gt;
+作りおきすることにしました。&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;span style=&quot;font-size: 150%&quot;&gt;&lt;b&gt;お弁当作り置き&lt;/b&gt;&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;&lt;span style=&quot;color: #286f2c&quot;&gt;基礎（下ごしらえ）&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;要求分析→既存製品でしたので簡素化しました。&lt;/li&gt;
+&lt;li&gt;ユースケース&lt;/li&gt;
+&lt;li&gt;機能分析&lt;/li&gt;
+&lt;li&gt;問題分析（魚の骨）
+&lt;span itemscope itemtype=&quot;http://schema.org/Photograph&quot;&gt;&lt;img src=&quot;http://cdn-ak.f.st-hatena.com/images/fotolife/u/uzabase/20150623/20150623144912.png&quot; alt=&quot;f:id:uzabase:20150623144912p:plain&quot; title=&quot;f:id:uzabase:20150623144912p:plain&quot; class=&quot;hatena-fotolife&quot; itemprop=&quot;image&quot;&gt;&lt;/span&gt;&lt;br /&gt;
+SPEEDAの冷蔵庫です&lt;br /&gt;
+&lt;br /&gt;
+機能の影響範囲をチェックリストにしたがって見ていけば&lt;br /&gt;
+基本的なテストケースまでができあがります。&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;&lt;br /&gt;
+&lt;b&gt;&lt;span style=&quot;color: #286f2c&quot;&gt;案件毎のテストセット作成（おかずづくり）&lt;/span&gt;&lt;br /&gt;&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;基礎をベースに、プロジェクト毎のテスト要件定義は、&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;マインドマップ:テスト観点の洗い出し
+&lt;span itemscope itemtype=&quot;http://schema.org/Photograph&quot;&gt;&lt;img src=&quot;http://cdn-ak.f.st-hatena.com/images/fotolife/u/uzabase/20150623/20150623141643.png&quot; alt=&quot;f:id:uzabase:20150623141643p:plain&quot; title=&quot;f:id:uzabase:20150623141643p:plain&quot; class=&quot;hatena-fotolife&quot; itemprop=&quot;image&quot;&gt;&lt;/span&gt;ブラウザのマインドマップ&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;ユースケース：テスト範囲・開発範囲、影響の見積もり&lt;/li&gt;
+&lt;li&gt;シーケンス図：実務の考慮漏れ対策&lt;/li&gt;
+&lt;li&gt;状態遷移図：シナリオテストのヒントにする&lt;/li&gt;
+&lt;li&gt;デシジョンテーブル：パターン洗い出し&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;などを用意してテストセットに落としています。&lt;br /&gt;
+どれも目新しいものではありませんが、&lt;br /&gt;
+再利用もしやすく時間もかからず重宝しています。&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;&lt;span style=&quot;color: #286f2c&quot;&gt;盛り付け（テストラン）&lt;/span&gt;&lt;br /&gt;&lt;/b&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;テスト（お弁当を詰める）&lt;br /&gt;
+　　UT：単体テスト&lt;br /&gt;
+　　SIT：結合テスト　直交表やシナリオなど&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;体制（料理人の皆様）&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;こうして、温かいうちに召し上がっていただけるように&lt;br /&gt;
+こつこつ資産化しています。&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span itemscope itemtype=&quot;http://schema.org/Photograph&quot;&gt;&lt;img src=&quot;http://cdn-ak.f.st-hatena.com/images/fotolife/u/uzabase/20150623/20150623143617.png&quot; alt=&quot;f:id:uzabase:20150623143617p:plain&quot; title=&quot;f:id:uzabase:20150623143617p:plain&quot; class=&quot;hatena-fotolife&quot; itemprop=&quot;image&quot;&gt;&lt;/span&gt;召し上がれ！&lt;br /&gt;
+&lt;br /&gt;
+お弁当QAを体験してみたいエンジニアの皆さん、おいでませ＾－＾&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&quot;hatena-asin-detail&quot;&gt;&lt;a href=&quot;http://www.amazon.co.jp/exec/obidos/ASIN/4817192283/hatena-blog-22/&quot;&gt;&lt;img src=&quot;http://ecx.images-amazon.com/images/I/41VcxPXKoYL._SL160_.jpg&quot; class=&quot;hatena-asin-detail-image&quot; alt=&quot;ソフトウェアテストHAYST法入門 品質と生産性がアップする直交表の使い方&quot; title=&quot;ソフトウェアテストHAYST法入門 品質と生産性がアップする直交表の使い方&quot;&gt;&lt;/a&gt;&lt;div class=&quot;hatena-asin-detail-info&quot;&gt;&lt;p class=&quot;hatena-asin-detail-title&quot;&gt;&lt;a href=&quot;http://www.amazon.co.jp/exec/obidos/ASIN/4817192283/hatena-blog-22/&quot;&gt;ソフトウェアテストHAYST法入門 品質と生産性がアップする直交表の使い方&lt;/a&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;span class=&quot;hatena-asin-detail-label&quot;&gt;作者:&lt;/span&gt; 吉澤正孝/秋山浩一/仙石太郎&lt;/li&gt;&lt;li&gt;&lt;span class=&quot;hatena-asin-detail-label&quot;&gt;出版社/メーカー:&lt;/span&gt; 日科技連出版社&lt;/li&gt;&lt;li&gt;&lt;span class=&quot;hatena-asin-detail-label&quot;&gt;発売日:&lt;/span&gt; 2007/07/26&lt;/li&gt;&lt;li&gt;&lt;span class=&quot;hatena-asin-detail-label&quot;&gt;メディア:&lt;/span&gt; 単行本&lt;/li&gt;&lt;li&gt;&lt;span class=&quot;hatena-asin-detail-label&quot;&gt;購入&lt;/span&gt;: 3人 &lt;span class=&quot;hatena-asin-detail-label&quot;&gt;クリック&lt;/span&gt;: 86回&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;http://d.hatena.ne.jp/asin/4817192283/hatena-blog-22&quot; target=&quot;_blank&quot;&gt;この商品を含むブログ (20件) を見る&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;div class=&quot;hatena-asin-detail-foot&quot;&gt;&lt;/div&gt;&lt;/div&gt; サイン本もってます:-D&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&quot;hatena-asin-detail&quot;&gt;&lt;a href=&quot;http://www.amazon.co.jp/exec/obidos/ASIN/4048672347/hatena-blog-22/&quot;&gt;&lt;img src=&quot;http://ecx.images-amazon.com/images/I/51Vxllc4BBL._SL160_.jpg&quot; class=&quot;hatena-asin-detail-image&quot; alt=&quot;ペンとノートで発想を広げる“お絵描き”ノート術 マインドマップ(R)が本当に使いこなせる本 (アスキームック)&quot; title=&quot;ペンとノートで発想を広げる“お絵描き”ノート術 マインドマップ(R)が本当に使いこなせる本 (アスキームック)&quot;&gt;&lt;/a&gt;&lt;div class=&quot;hatena-asin-detail-info&quot;&gt;&lt;p class=&quot;hatena-asin-detail-title&quot;&gt;&lt;a href=&quot;http://www.amazon.co.jp/exec/obidos/ASIN/4048672347/hatena-blog-22/&quot;&gt;ペンとノートで発想を広げる“お絵描き”ノート術 マインドマップ(R)が本当に使いこなせる本 (アスキームック)&lt;/a&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;span class=&quot;hatena-asin-detail-label&quot;&gt;作者:&lt;/span&gt; 遠竹智寿子,月刊アスキー編集部,ブザン・ワールドワイド・ジャパン、ブザン教育協会&lt;/li&gt;&lt;li&gt;&lt;span class=&quot;hatena-asin-detail-label&quot;&gt;出版社/メーカー:&lt;/span&gt; アスキー・メディアワークス&lt;/li&gt;&lt;li&gt;&lt;span class=&quot;hatena-asin-detail-label&quot;&gt;発売日:&lt;/span&gt; 2008/06/30&lt;/li&gt;&lt;li&gt;&lt;span class=&quot;hatena-asin-detail-label&quot;&gt;メディア:&lt;/span&gt; ムック&lt;/li&gt;&lt;li&gt;&lt;span class=&quot;hatena-asin-detail-label&quot;&gt;購入&lt;/span&gt;: 40人 &lt;span class=&quot;hatena-asin-detail-label&quot;&gt;クリック&lt;/span&gt;: 957回&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;http://d.hatena.ne.jp/asin/4048672347/hatena-blog-22&quot; target=&quot;_blank&quot;&gt;この商品を含むブログ (66件) を見る&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;div class=&quot;hatena-asin-detail-foot&quot;&gt;&lt;/div&gt;&lt;/div&gt;　さらっと読んですぐ使いこなしたい方に&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&quot;hatena-asin-detail&quot;&gt;&lt;a href=&quot;http://www.amazon.co.jp/exec/obidos/ASIN/4798118443/hatena-blog-22/&quot;&gt;&lt;img src=&quot;http://ecx.images-amazon.com/images/I/51hcs7og2fL._SL160_.jpg&quot; class=&quot;hatena-asin-detail-image&quot; alt=&quot;ダイアグラム別UML徹底活用 第2版 (DB Magazine SELECTION)&quot; title=&quot;ダイアグラム別UML徹底活用 第2版 (DB Magazine SELECTION)&quot;&gt;&lt;/a&gt;&lt;div class=&quot;hatena-asin-detail-info&quot;&gt;&lt;p class=&quot;hatena-asin-detail-title&quot;&gt;&lt;a href=&quot;http://www.amazon.co.jp/exec/obidos/ASIN/4798118443/hatena-blog-22/&quot;&gt;ダイアグラム別UML徹底活用 第2版 (DB Magazine SELECTION)&lt;/a&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;span class=&quot;hatena-asin-detail-label&quot;&gt;作者:&lt;/span&gt; 井上樹&lt;/li&gt;&lt;li&gt;&lt;span class=&quot;hatena-asin-detail-label&quot;&gt;出版社/メーカー:&lt;/span&gt; 翔泳社&lt;/li&gt;&lt;li&gt;&lt;span class=&quot;hatena-asin-detail-label&quot;&gt;発売日:&lt;/span&gt; 2011/02/25&lt;/li&gt;&lt;li&gt;&lt;span class=&quot;hatena-asin-detail-label&quot;&gt;メディア:&lt;/span&gt; 大型本&lt;/li&gt;&lt;li&gt;&lt;span class=&quot;hatena-asin-detail-label&quot;&gt;購入&lt;/span&gt;: 1人 &lt;span class=&quot;hatena-asin-detail-label&quot;&gt;クリック&lt;/span&gt;: 5回&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;http://d.hatena.ne.jp/asin/4798118443/hatena-blog-22&quot; target=&quot;_blank&quot;&gt;この商品を含むブログ (2件) を見る&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;div class=&quot;hatena-asin-detail-foot&quot;&gt;&lt;/div&gt;&lt;/div&gt;　Kindle版もあります&lt;/p&gt;
+</description>
+          <pubDate>Thu, 02 Jul 2015 20:03:56 +0900</pubDate>
+          <guid isPermalink="false">hatenablog://entry/8454420450098619942</guid>
+          
+        </item>
+      
+    
+      
+        <item>
+          <title>たのしいフォントえらび 〜 GoogleやDEAN &amp; DELUCA、SPEEDAの事例から 〜</title>
+          <link>http://tech.uzabase.com/entry/2015/06/11/164718</link>
+          <description>&lt;p&gt;こんにちは。ユーザベースのデザイナー、広田です。企業・業界情報サービス「SPEEDA」を担当しています。&lt;/p&gt;
+
+&lt;p&gt;とうとう、ブログの順番が回ってきました。
+UZABASE Tech Blogの記事ネタは、ユーザベースのエンジニアが一堂に集まる週一のミーティング、そこで話す持ち回りのライトニングトークが元になっています。もちろん、それがすべてではありませんが、記事を書く順番としてはそんな感じです。
+そして、2月に入社した私にも、ライトニングトークの順番、すなわちブログを書く順番が回ってきたというわけです。&lt;/p&gt;
+
+&lt;p&gt;テックミーティングの参加者は、当然ですが、エンジニアばかり。
+なので、私にとってはチンプンカンプンのエンジニア用語が並ぶわけですが、そんな中で私が話せることってなんだろう？と（一応、真剣に）考えた結果、エンジニアにとっても身近であろうフォントについて話すことにしました。&lt;/p&gt;
+
+&lt;p&gt;というのも、入社以来、ずっと気になっていたSPEEDAのロゴのルーツ。その答えを見つけた良いタイミングでもあったので。&lt;/p&gt;
+
+&lt;p&gt;・・・と、ちょっと前置きが長くなってしまいましたが、テーマは「たのしいフォントえらび 〜 GoogleやDEAN &amp;amp; DELUCA、SPEEDAの事例から 〜」に決定しました。&lt;/p&gt;
+
+&lt;h3&gt;目次&lt;/h3&gt;
+
+&lt;p&gt;・&lt;a href=&quot;#section1&quot;&gt;SPEEDAのロゴのルーツ&lt;/a&gt;&lt;br&gt;
+・&lt;a href=&quot;#section2&quot;&gt;SPEEDAのお仲間さがし&lt;/a&gt;&lt;br&gt;
+・&lt;a href=&quot;#section3&quot;&gt;有名ブランドのロゴは何のフォントを使ってる？&lt;/a&gt;&lt;br&gt;
+・&lt;a href=&quot;#section4&quot;&gt;もしもユーザベースが第3の事業を始めたら...&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;&lt;a name=&quot;section1&quot;&gt;&lt;/a&gt;SPEEDAのロゴのルーツ&lt;/h3&gt;
+
+&lt;p&gt;さて、本題のSPEEDAのロゴですが、残念ながらこのロゴの成り立ちを語れる人を見つけることはできませんでした。それで、ずっとモヤモヤした毎日を過ごしていたわけです。これに似たフォントはなんだろう、、、と。そうやってSPEEDAのロゴのフォントのことをずっと想っていたら、とうとう出会ってしまったんです。&lt;/p&gt;
+
+&lt;p&gt;それは、ある日、突然。まるで天から降ってきたかのように。久しぶりに見たフォント本の中にいました。&lt;/p&gt;
+
+&lt;p&gt;&lt;span itemscope itemtype=&quot;http://schema.org/Photograph&quot;&gt;&lt;img src=&quot;http://cdn-ak.f.st-hatena.com/images/fotolife/u/uzabase/20150531/20150531104840.jpg&quot; alt=&quot;f:id:uzabase:20150531104840j:plain&quot; title=&quot;f:id:uzabase:20150531104840j:plain&quot; class=&quot;hatena-fotolife&quot; itemprop=&quot;image&quot;&gt;&lt;/span&gt;
+2013年発行の「&lt;a href=&quot;http://www.graphicsha.co.jp/shosai.php?snumber3=1305&quot;&gt;TYPOGRAPHY03&lt;/a&gt;」（グラフィック社）&lt;/p&gt;
+
+&lt;p&gt;このムックのここに。ほら。SPEEDAのロゴにそっくりでしょ？
+&lt;span itemscope itemtype=&quot;http://schema.org/Photograph&quot;&gt;&lt;img src=&quot;http://cdn-ak.f.st-hatena.com/images/fotolife/u/uzabase/20150531/20150531105845.jpg&quot; alt=&quot;f:id:uzabase:20150531105845j:plain&quot; title=&quot;f:id:uzabase:20150531105845j:plain&quot; class=&quot;hatena-fotolife&quot; itemprop=&quot;image&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;そう「BANK GOTHIC」というフォントです。
+（ムックには「 BANNK GOTHIC」とありますが、これは誤植ですね。）&lt;/p&gt;
+
+&lt;p&gt;このフォントに出会った瞬間、もうね、なんとも言えない晴れ晴れした気持ちになったんですよ。出会うべくして出会った赤い糸＝運命の人？みたいな。それはおおげさですが。。。しかも、フォント名にBANK（銀行）とあるなんて。さまざまな企業の財務情報や業界の動向を提供するSPEEDAにぴったりのフォントですね。&lt;/p&gt;
+
+&lt;p&gt;&lt;span itemscope itemtype=&quot;http://schema.org/Photograph&quot;&gt;&lt;img src=&quot;http://cdn-ak.f.st-hatena.com/images/fotolife/u/uzabase/20150531/20150531111126.png&quot; alt=&quot;f:id:uzabase:20150531111126p:plain&quot; title=&quot;f:id:uzabase:20150531111126p:plain&quot; class=&quot;hatena-fotolife&quot; itemprop=&quot;image&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;BANK GOTHICはサンセリフ、ウロコのない書体です。その中でも幾何学的図形のような骨格を持つジオメトリック・サンセリフです。
+ほら、見てください。ほぼ正方形の形をしていますよね？（青枠に注目）&lt;/p&gt;
+
+&lt;p&gt;BANK GOTHICの特徴を他にも挙げると、GやO、Cに見られる正方形部分、この内側部分が直角になっているのに対して、外側が丸みを帯びている点ですね（赤の丸に注目）&lt;/p&gt;
+
+&lt;p&gt;参考までに、&lt;a href=&quot;http://www.fonts.com/ja/browse/designers/morris-fuller-benton&quot;&gt;fonts.com&lt;/a&gt; から引用したBANK GOTHICの生みの親、Morris Fuller Bentonについて記しておきます。&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;Morris Fuller Benton – born 1872 in Milwaukee, USA, died 1948 in Morristown, USA – engineer, type designer. After training as a mechanic and engineer, Benton jointed the ATF, where he became type designer and in-house designer with ATF.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;フォント名が明らかになったところで、SPEEDAのロゴの検証をしていきましょう。&lt;/p&gt;
+
+&lt;p&gt;まずは現在のロゴ。これが最終形です。
+&lt;span itemscope itemtype=&quot;http://schema.org/Photograph&quot;&gt;&lt;img src=&quot;http://cdn-ak.f.st-hatena.com/images/fotolife/u/uzabase/20150531/20150531112457.png&quot; alt=&quot;f:id:uzabase:20150531112457p:plain&quot; title=&quot;f:id:uzabase:20150531112457p:plain&quot; class=&quot;hatena-fotolife&quot; itemprop=&quot;image&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;そしてこれが一世代前のロゴ。いつまで使われていたのか、正確なところはわかりません。
+&lt;span itemscope itemtype=&quot;http://schema.org/Photograph&quot;&gt;&lt;img src=&quot;http://cdn-ak.f.st-hatena.com/images/fotolife/u/uzabase/20150531/20150531112712.png&quot; alt=&quot;f:id:uzabase:20150531112712p:plain&quot; title=&quot;f:id:uzabase:20150531112712p:plain&quot; class=&quot;hatena-fotolife&quot; itemprop=&quot;image&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;今のロゴと比較すると一世代前のロゴは少しスリムでしたね。今のロゴのほうが骨太です。その他にも、PとDに変化が見られますね。現在のロゴのほうが尖った印象になっているとと同時に、より堂々とした感じが伝わってきます。そして男性的。&lt;/p&gt;
+
+&lt;p&gt;ここからは想像ですが、こんな流れでSPEEDAのロゴができあがったのではないかと。
+&lt;span itemscope itemtype=&quot;http://schema.org/Photograph&quot;&gt;&lt;img src=&quot;http://cdn-ak.f.st-hatena.com/images/fotolife/u/uzabase/20150603/20150603195800.png&quot; alt=&quot;f:id:uzabase:20150603195800p:plain&quot; title=&quot;f:id:uzabase:20150603195800p:plain&quot; class=&quot;hatena-fotolife&quot; itemprop=&quot;image&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;BANK GOTHICでSPEEDAを組む …（ A）&lt;/li&gt;
+&lt;li&gt;（A）をベースに文字の横幅を少しスリムにする（正方形から長方形に）...（B）&lt;/li&gt;
+&lt;li&gt;微調整（特にSやE）を繰り返して、一世代前のロゴが完成…（C）&lt;/li&gt;
+&lt;li&gt;さらに微調整を繰り返して、今のロゴが完成…（D）&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h3&gt;&lt;a name=&quot;section2&quot;&gt;&lt;/a&gt;SPEEDAのお仲間さがし&lt;/h3&gt;
+
+&lt;p&gt;SPEEDAのロゴのルーツを知り、俄然、BANK GOTHICが身近になった私。そこで、BANK GOTHICを使ったロゴのお仲間を探してみました。&lt;/p&gt;
+
+&lt;p&gt;Googleで検索してみると、いろいろ見つかります。
+いずれもロゴの形を見ての想像でしかありませんが、&lt;a href=&quot;http://www.nintendo.co.jp/ds/&quot;&gt;NINTENDO DS&lt;/a&gt;のNINTENDOやER緊急救命室のER、浅草にあるホテル&lt;a href=&quot;http://www.agoraplace-asakusa.com/&quot;&gt;AGOLA PLACE&lt;/a&gt;などはBANK GOTHICではないかと思います。&lt;/p&gt;
+
+&lt;p&gt;そして、私たちのオフィス近くにもBANK GOTHICを見つけました。
+恵比寿駅からオフィスに向かう途中にある恵比寿ビジネスタワー。下の写真をご覧ください。この欧文ロゴがBANK GOTHICっぽいんです。
+昨年12月、ユーザベースは外苑前からここ恵比寿に移転しましたが、もしかしたら引っ越し先はこのビルにすべきだったかもしれませんね、、、なんて思ったり。
+&lt;span itemscope itemtype=&quot;http://schema.org/Photograph&quot;&gt;&lt;img src=&quot;http://cdn-ak.f.st-hatena.com/images/fotolife/u/uzabase/20150531/20150531115149.jpg&quot; alt=&quot;f:id:uzabase:20150531115149j:plain&quot; title=&quot;f:id:uzabase:20150531115149j:plain&quot; class=&quot;hatena-fotolife&quot; itemprop=&quot;image&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;h3&gt;&lt;a name=&quot;section3&quot;&gt;&lt;/a&gt;Google、VOGUE、Dean &amp;amp; Delucaなどのブランドロゴはどのフォントを使ってる？&lt;/h3&gt;
+
+&lt;p&gt;ロゴとフォントのことをいろいろ調べていたら、有名ブランドのロゴのフォントも気になってきました。そこで、書籍やインターネットなどで調べてみました。&lt;/p&gt;
+
+&lt;h4&gt;LOUIS VUITTON&lt;/h4&gt;
+
+&lt;p&gt;多くの人の憧れのファッションブランド &lt;a href=&quot;http://jp.louisvuitton.com/&quot;&gt;LOUIS VUITTON&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;&lt;span itemscope itemtype=&quot;http://schema.org/Photograph&quot;&gt;&lt;img src=&quot;http://cdn-ak.f.st-hatena.com/images/fotolife/u/uzabase/20150602/20150602000621.png&quot; alt=&quot;f:id:uzabase:20150602000621p:plain&quot; title=&quot;f:id:uzabase:20150602000621p:plain&quot; class=&quot;hatena-fotolife&quot; itemprop=&quot;image&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;これはMacにも標準で搭載されているFutura（フツラ、フーツラ）で組まれたフォントです。字と字の間を調整している以外は、ほぼ原型のまま使っているっぽいです。実は、ユーザベースのロゴもFuturaなんですね。&lt;/p&gt;
+
+&lt;p&gt;&lt;span itemscope itemtype=&quot;http://schema.org/Photograph&quot;&gt;&lt;img src=&quot;http://cdn-ak.f.st-hatena.com/images/fotolife/u/uzabase/20150602/20150602224304.png&quot; alt=&quot;f:id:uzabase:20150602224304p:plain&quot; title=&quot;f:id:uzabase:20150602224304p:plain&quot; class=&quot;hatena-fotolife&quot; itemprop=&quot;image&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;h4&gt;VOGUE&lt;/h4&gt;
+
+&lt;p&gt;続いて老舗の女性ファッション誌 &lt;a href=&quot;http://www.vogue.co.jp/&quot;&gt;VOGUE&lt;/a&gt;。このロゴで使われているのは、Didot（ディド）です。こちらもMacをお使いの方は持っているんじゃないでしょうか？&lt;/p&gt;
+
+&lt;p&gt;&lt;span itemscope itemtype=&quot;http://schema.org/Photograph&quot;&gt;&lt;img src=&quot;http://cdn-ak.f.st-hatena.com/images/fotolife/u/uzabase/20150602/20150602002309.jpg&quot; alt=&quot;f:id:uzabase:20150602002309j:plain&quot; title=&quot;f:id:uzabase:20150602002309j:plain&quot; class=&quot;hatena-fotolife&quot; itemprop=&quot;image&quot;&gt;&lt;/span&gt;
+&lt;a href=&quot;http://(http://www.vogue.co.jp/&quot;&gt;http://www.vogue.co.jp/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;あらためて書店で平積みされている女性ファッション誌を見てみると、Didotのように、細いところと太いところの差がはっきりしているロゴが多いですね。特に大人の女性向けファッション誌に。まるで女性の理想的なプロポーション、華奢に見えるのに出ているところは出ている、、、みたいな。そんな印象を受けるフォントです。Didotはそれに加えて丸みもあるので、女性らしいしなやかさも感じます。&lt;/p&gt;
+
+&lt;p&gt;&lt;span itemscope itemtype=&quot;http://schema.org/Photograph&quot;&gt;&lt;img src=&quot;http://cdn-ak.f.st-hatena.com/images/fotolife/u/uzabase/20150602/20150602224332.png&quot; alt=&quot;f:id:uzabase:20150602224332p:plain&quot; title=&quot;f:id:uzabase:20150602224332p:plain&quot; class=&quot;hatena-fotolife&quot; itemprop=&quot;image&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;h4&gt;DEAN &amp;amp; DELUCA&lt;/h4&gt;
+
+&lt;p&gt;NY生まれのフード＆カフェのお店。見たことのないオシャレなパッケージの食材が並んでいて、本当に楽しいお店です。このロゴはCopperplate Gothicですね。いろんなところで目にする人気のフォントです。こちらも私のMacにはインストールされています。&lt;/p&gt;
+
+&lt;p&gt;&lt;span itemscope itemtype=&quot;http://schema.org/Photograph&quot;&gt;&lt;img src=&quot;http://cdn-ak.f.st-hatena.com/images/fotolife/u/uzabase/20150602/20150602003156.jpg&quot; alt=&quot;f:id:uzabase:20150602003156j:plain&quot; title=&quot;f:id:uzabase:20150602003156j:plain&quot; class=&quot;hatena-fotolife&quot; itemprop=&quot;image&quot;&gt;&lt;/span&gt;
+&lt;a href=&quot;http://www.deandeluca.com/&quot;&gt;http://www.deandeluca.com/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span itemscope itemtype=&quot;http://schema.org/Photograph&quot;&gt;&lt;img src=&quot;http://cdn-ak.f.st-hatena.com/images/fotolife/u/uzabase/20150602/20150602224348.png&quot; alt=&quot;f:id:uzabase:20150602224348p:plain&quot; title=&quot;f:id:uzabase:20150602224348p:plain&quot; class=&quot;hatena-fotolife&quot; itemprop=&quot;image&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;h4&gt;Google&lt;/h4&gt;
+
+&lt;p&gt;そして、いつもお世話になっているGoogle。このロゴで使われているのはCatull BQです。ほぼ手を加えず原型のまま使っているっぽいです。&lt;/p&gt;
+
+&lt;p&gt;&lt;span itemscope itemtype=&quot;http://schema.org/Photograph&quot;&gt;&lt;img src=&quot;http://cdn-ak.f.st-hatena.com/images/fotolife/u/uzabase/20150602/20150602003639.jpg&quot; alt=&quot;f:id:uzabase:20150602003639j:plain&quot; title=&quot;f:id:uzabase:20150602003639j:plain&quot; class=&quot;hatena-fotolife&quot; itemprop=&quot;image&quot;&gt;&lt;/span&gt;
+&lt;a href=&quot;http://www.google.co.jp/&quot;&gt;http://www.google.co.jp/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.myfonts.com/fonts/berthold/catull-bq/&quot;&gt;Catull® BQ - Desktop font « MyFonts&lt;/a&gt;&lt;cite class=&quot;hatena-citation&quot;&gt;&lt;a href=&quot;https://www.myfonts.com/fonts/berthold/catull-bq/&quot;&gt;www.myfonts.com&lt;/a&gt;&lt;/cite&gt;&lt;/p&gt;
+
+&lt;h3&gt;&lt;a name=&quot;section4&quot;&gt;&lt;/a&gt;もしもユーザベースが第3の事業を始めたら...&lt;/h3&gt;
+
+&lt;p&gt;さて、ここからは私の妄想です。「もしもユーザベースが第3の事業を始めたら…」を妄想して、こんなときにはこんなフォントが合うんじゃ？という視点で、フォントを探してみました。&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;ユーザベースは、法人向け業界分析情報データベース「SPEEDA」と、経済情報に特化したニュース共有サービス「NewsPicks」という2つのプロダクトの開発・運営を行っています。&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h4&gt;もしもユーザベースが「ホラー映画」を作ったら...&lt;/h4&gt;
+
+&lt;p&gt;そこで、こわーいフォントを探してみました。&lt;/p&gt;
+
+&lt;p&gt;さて、どうでしょう？　これはAdobe Creative CloudのTypekitにもあるAdobeのIronwoodというフォントです。&lt;/p&gt;
+
+&lt;p&gt;&lt;span itemscope itemtype=&quot;http://schema.org/Photograph&quot;&gt;&lt;img src=&quot;http://cdn-ak.f.st-hatena.com/images/fotolife/u/uzabase/20150603/20150603232308.jpg&quot; alt=&quot;f:id:uzabase:20150603232308j:plain&quot; title=&quot;f:id:uzabase:20150603232308j:plain&quot; class=&quot;hatena-fotolife&quot; itemprop=&quot;image&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.fontshop.com/families/ironwood&quot;&gt;https://www.fontshop.com/families/ironwood&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;こうやってみるとそんなに怖そうに見えませんが、少し色を工夫すると、イギリスあたりの誰も住んでいない古い館っぽっく見えてきませんか？　まるでドラキュラの棲家のような。また、不安定な 3本のラインがなかなか良い効果が出ているようで、「裏切り」や「壊れる」といったサスペンス映画の要素も見えてきます。&lt;/p&gt;
+
+&lt;p&gt;&lt;span itemscope itemtype=&quot;http://schema.org/Photograph&quot;&gt;&lt;img src=&quot;http://cdn-ak.f.st-hatena.com/images/fotolife/u/uzabase/20150604/20150604002217.jpg&quot; alt=&quot;f:id:uzabase:20150604002217j:plain&quot; title=&quot;f:id:uzabase:20150604002217j:plain&quot; class=&quot;hatena-fotolife&quot; itemprop=&quot;image&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;dafont.comを探せば、それはそれは怖いフォントも他にもたくさん見つかるんですが、お勧めしてもいいものとそうでないものの選別が難しいので、ここで紹介するのはやめました。&lt;/p&gt;
+
+&lt;h4&gt;もしもユーザベースが「自然派化粧品」を売り出したら...&lt;/h4&gt;
+
+&lt;p&gt;続いて、同じくAdobe Creative CloudのTypekitにもあるBlakely というフォントを使って、自然派化粧品のロゴを作ってみました。&lt;/p&gt;
+
+&lt;p&gt;&lt;span itemscope itemtype=&quot;http://schema.org/Photograph&quot;&gt;&lt;img src=&quot;http://cdn-ak.f.st-hatena.com/images/fotolife/u/uzabase/20150604/20150604225039.jpg&quot; alt=&quot;f:id:uzabase:20150604225039j:plain&quot; title=&quot;f:id:uzabase:20150604225039j:plain&quot; class=&quot;hatena-fotolife&quot; itemprop=&quot;image&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.fontshop.com/families/blakely&quot;&gt;https://www.fontshop.com/families/blakely&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;上の図はBoldですが、一番細いLightを使うと印象がぐっと変わります。このLightを使って、今度はNewsPIcksでロゴを作ってみました。&lt;/p&gt;
+
+&lt;p&gt;ターゲットは20代女性くらい？　「いつまでもみずみずしいお肌をキープしたい女性へ」「敏感肌のあなたへ」といったところかな。とても涼しげな感じに仕上がったので、今のこの暑い季節に売り出したいところですね。&lt;/p&gt;
+
+&lt;p&gt;&lt;span itemscope itemtype=&quot;http://schema.org/Photograph&quot;&gt;&lt;img src=&quot;http://cdn-ak.f.st-hatena.com/images/fotolife/u/uzabase/20150604/20150604225617.png&quot; alt=&quot;f:id:uzabase:20150604225617p:plain&quot; title=&quot;f:id:uzabase:20150604225617p:plain&quot; class=&quot;hatena-fotolife&quot; itemprop=&quot;image&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;h4&gt;もしもユーザベースが「子ども服ブランド」を立ち上げたら…&lt;/h4&gt;
+
+&lt;p&gt;最後に、もしもユーザベースが「子ども服ブランド」を立ち上げたら…と題して、楽しくてやさしいフォントを探してみました。&lt;/p&gt;
+
+&lt;p&gt;&lt;span itemscope itemtype=&quot;http://schema.org/Photograph&quot;&gt;&lt;img src=&quot;http://cdn-ak.f.st-hatena.com/images/fotolife/u/uzabase/20150603/20150603221133.jpg&quot; alt=&quot;f:id:uzabase:20150603221133j:plain&quot; title=&quot;f:id:uzabase:20150603221133j:plain&quot; class=&quot;hatena-fotolife&quot; itemprop=&quot;image&quot;&gt;&lt;/span&gt;
+&lt;a href=&quot;https://www.fontshop.com/families/scruff&quot;&gt;https://www.fontshop.com/families/scruff&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;どうでしょうか？ これは scruff というフォントです。
+おもちゃ箱をひっくり返したように、とっても楽しそうですよね。&lt;/p&gt;
+
+&lt;p&gt;「S」なんて、おもちゃの電車を走らせる線路に見えてくるし、「f」が2つ並んでいるところは双子の兄弟がひげダンスしているように見えてくる。ほら、他の文字も全部楽しそうですよね。&lt;/p&gt;
+
+&lt;p&gt;&lt;span itemscope itemtype=&quot;http://schema.org/Photograph&quot;&gt;&lt;img src=&quot;http://cdn-ak.f.st-hatena.com/images/fotolife/u/uzabase/20150603/20150603224352.jpg&quot; alt=&quot;f:id:uzabase:20150603224352j:plain&quot; title=&quot;f:id:uzabase:20150603224352j:plain&quot; class=&quot;hatena-fotolife&quot; itemprop=&quot;image&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;このフォントは、元気な子ども服ブランドや知育の玩具メーカーのロゴにきっと似合うはず。例えば、こんな感じでね。&lt;/p&gt;
+
+&lt;p&gt;&lt;span itemscope itemtype=&quot;http://schema.org/Photograph&quot;&gt;&lt;img src=&quot;http://cdn-ak.f.st-hatena.com/images/fotolife/u/uzabase/20150604/20150604220204.png&quot; alt=&quot;f:id:uzabase:20150604220204p:plain&quot; title=&quot;f:id:uzabase:20150604220204p:plain&quot; class=&quot;hatena-fotolife&quot; itemprop=&quot;image&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;ちなみに、キャッチコピーで使用したフォントは「&lt;a href=&quot;https://www.fontshop.com/families/blakely&quot;&gt;やさしさゴシック&lt;/a&gt;」というフリーのフォントです。日本語のフリーフォントでこれだけ文字の種類が揃っているのは珍しいのでとても貴重です。&lt;/p&gt;
+
+&lt;p&gt;長々とフォントについて書きましたが、最後に、敬愛する日本人フォントデザイナー、小林章さんの言葉を載せて、締めくくりたいと思います。&lt;/p&gt;
+
+&lt;p&gt;&lt;span itemscope itemtype=&quot;http://schema.org/Photograph&quot;&gt;&lt;img src=&quot;http://cdn-ak.f.st-hatena.com/images/fotolife/u/uzabase/20150531/20150531130901.png&quot; alt=&quot;f:id:uzabase:20150531130901p:plain&quot; title=&quot;f:id:uzabase:20150531130901p:plain&quot; class=&quot;hatena-fotolife&quot; itemprop=&quot;image&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;ユーザベースではエンジニアを募集しています！&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;大規模で多種多様なデータを扱うことに興味がある方&lt;/li&gt;
+&lt;li&gt;とにかく技術が好きな方&lt;/li&gt;
+&lt;li&gt;様々なバックグラウンドを持つ人材と働いてみたい方&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;以上に一つでも当てはまる方は、一度オフィスに遊びに来てください！&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.wantedly.com/projects/11497&quot;&gt;巨大金融メディアに打ち勝つサービスをつくりたいエンジニアWanted! by 株式会社ユーザベース&lt;/a&gt;&lt;cite class=&quot;hatena-citation&quot;&gt;&lt;a href=&quot;https://www.wantedly.com/projects/11497&quot;&gt;www.wantedly.com&lt;/a&gt;&lt;/cite&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;【参考サイト・書籍】&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://matome.naver.jp/odai/2133151854135573901&quot;&gt;有名企業やサイトのロゴに使用されているフォントまとめ - NAVER まとめ&lt;/a&gt;&lt;cite class=&quot;hatena-citation&quot;&gt;&lt;a href=&quot;http://matome.naver.jp/odai/2133151854135573901&quot;&gt;matome.naver.jp&lt;/a&gt;&lt;/cite&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://matome.naver.jp/odai/2135168573243723001&quot;&gt;名作フォントと有名ロゴのおいしい関係 - NAVER まとめ&lt;/a&gt;&lt;cite class=&quot;hatena-citation&quot;&gt;&lt;a href=&quot;http://matome.naver.jp/odai/2135168573243723001&quot;&gt;matome.naver.jp&lt;/a&gt;&lt;/cite&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&quot;hatena-asin-detail&quot;&gt;&lt;a href=&quot;http://www.amazon.co.jp/exec/obidos/ASIN/4766124758/hatena-blog-22/&quot;&gt;&lt;img src=&quot;http://ecx.images-amazon.com/images/I/51fM19fMW2L._SL160_.jpg&quot; class=&quot;hatena-asin-detail-image&quot; alt=&quot;TYPOGRAPHY(タイポグラフィ)03  デザイナーなら覚えておくべき 厳選フォント350&quot; title=&quot;TYPOGRAPHY(タイポグラフィ)03  デザイナーなら覚えておくべき 厳選フォント350&quot;&gt;&lt;/a&gt;&lt;div class=&quot;hatena-asin-detail-info&quot;&gt;&lt;p class=&quot;hatena-asin-detail-title&quot;&gt;&lt;a href=&quot;http://www.amazon.co.jp/exec/obidos/ASIN/4766124758/hatena-blog-22/&quot;&gt;TYPOGRAPHY(タイポグラフィ)03  デザイナーなら覚えておくべき 厳選フォント350&lt;/a&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;span class=&quot;hatena-asin-detail-label&quot;&gt;作者:&lt;/span&gt; グラフィック社編集部&lt;/li&gt;&lt;li&gt;&lt;span class=&quot;hatena-asin-detail-label&quot;&gt;出版社/メーカー:&lt;/span&gt; グラフィック社&lt;/li&gt;&lt;li&gt;&lt;span class=&quot;hatena-asin-detail-label&quot;&gt;発売日:&lt;/span&gt; 2013/05/07&lt;/li&gt;&lt;li&gt;&lt;span class=&quot;hatena-asin-detail-label&quot;&gt;メディア:&lt;/span&gt; 大型本&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;http://d.hatena.ne.jp/asin/4766124758/hatena-blog-22&quot; target=&quot;_blank&quot;&gt;この商品を含むブログ (4件) を見る&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;div class=&quot;hatena-asin-detail-foot&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&quot;hatena-asin-detail&quot;&gt;&lt;a href=&quot;http://www.amazon.co.jp/exec/obidos/ASIN/4568504287/hatena-blog-22/&quot;&gt;&lt;img src=&quot;http://ecx.images-amazon.com/images/I/51Dtxr9LBSL._SL160_.jpg&quot; class=&quot;hatena-asin-detail-image&quot; alt=&quot;フォントのふしぎ  ブランドのロゴはなぜ高そうに見えるのか？&quot; title=&quot;フォントのふしぎ  ブランドのロゴはなぜ高そうに見えるのか？&quot;&gt;&lt;/a&gt;&lt;div class=&quot;hatena-asin-detail-info&quot;&gt;&lt;p class=&quot;hatena-asin-detail-title&quot;&gt;&lt;a href=&quot;http://www.amazon.co.jp/exec/obidos/ASIN/4568504287/hatena-blog-22/&quot;&gt;フォントのふしぎ  ブランドのロゴはなぜ高そうに見えるのか？&lt;/a&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;span class=&quot;hatena-asin-detail-label&quot;&gt;作者:&lt;/span&gt; 小林章&lt;/li&gt;&lt;li&gt;&lt;span class=&quot;hatena-asin-detail-label&quot;&gt;出版社/メーカー:&lt;/span&gt; 美術出版社&lt;/li&gt;&lt;li&gt;&lt;span class=&quot;hatena-asin-detail-label&quot;&gt;発売日:&lt;/span&gt; 2011/01/17&lt;/li&gt;&lt;li&gt;&lt;span class=&quot;hatena-asin-detail-label&quot;&gt;メディア:&lt;/span&gt; 単行本（ソフトカバー）&lt;/li&gt;&lt;li&gt;&lt;span class=&quot;hatena-asin-detail-label&quot;&gt;購入&lt;/span&gt;: 11人 &lt;span class=&quot;hatena-asin-detail-label&quot;&gt;クリック&lt;/span&gt;: 235回&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;http://d.hatena.ne.jp/asin/4568504287/hatena-blog-22&quot; target=&quot;_blank&quot;&gt;この商品を含むブログ (33件) を見る&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;div class=&quot;hatena-asin-detail-foot&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&quot;hatena-asin-detail&quot;&gt;&lt;a href=&quot;http://www.amazon.co.jp/exec/obidos/ASIN/4756245676/hatena-blog-22/&quot;&gt;&lt;img src=&quot;http://ecx.images-amazon.com/images/I/51CbPBYN4VL._SL160_.jpg&quot; class=&quot;hatena-asin-detail-image&quot; alt=&quot;新しい価値を生み出すためのブランディングプロセス&quot; title=&quot;新しい価値を生み出すためのブランディングプロセス&quot;&gt;&lt;/a&gt;&lt;div class=&quot;hatena-asin-detail-info&quot;&gt;&lt;p class=&quot;hatena-asin-detail-title&quot;&gt;&lt;a href=&quot;http://www.amazon.co.jp/exec/obidos/ASIN/4756245676/hatena-blog-22/&quot;&gt;新しい価値を生み出すためのブランディングプロセス&lt;/a&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;span class=&quot;hatena-asin-detail-label&quot;&gt;出版社/メーカー:&lt;/span&gt; パイインターナショナル&lt;/li&gt;&lt;li&gt;&lt;span class=&quot;hatena-asin-detail-label&quot;&gt;発売日:&lt;/span&gt; 2015/01/20&lt;/li&gt;&lt;li&gt;&lt;span class=&quot;hatena-asin-detail-label&quot;&gt;メディア:&lt;/span&gt; 単行本&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;http://d.hatena.ne.jp/asin/4756245676/hatena-blog-22&quot; target=&quot;_blank&quot;&gt;この商品を含むブログを見る&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;div class=&quot;hatena-asin-detail-foot&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
+</description>
+          <pubDate>Thu, 11 Jun 2015 16:47:18 +0900</pubDate>
+          <guid isPermalink="false">hatenablog://entry/8454420450095961553</guid>
+          
+        </item>
+      
+    
+      
+        <item>
+          <title>ユーザベースの自由な社風を支える「みんなの会」のつくり方（動画環境編）</title>
+          <link>http://tech.uzabase.com/entry/2015/06/02/183335</link>
+          <description>&lt;p&gt;&lt;span itemscope itemtype=&quot;http://schema.org/Photograph&quot;&gt;&lt;img src=&quot;http://cdn-ak.f.st-hatena.com/images/fotolife/u/uzabase/20150526/20150526122646.jpg&quot; alt=&quot;f:id:uzabase:20150526122646j:plain&quot; title=&quot;f:id:uzabase:20150526122646j:plain&quot; class=&quot;hatena-fotolife&quot; itemprop=&quot;image&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;企業・業界情報データベース&lt;a href=&quot;http://www.uzabase.com/speeda/&quot;&gt;「SPEEDA」&lt;/a&gt;の開発チームに所属している川口と申します。&lt;/p&gt;
+
+&lt;p&gt;ユーザベースで大事にしている価値観として、「&lt;strong&gt;自由主義で行こう&lt;/strong&gt;」があります。きちんと仕事の結果を出せば、出社時間や服装は自由で、出社の義務もないというものです。&lt;/p&gt;
+
+&lt;p&gt;一方、自由に対する責任の一つとして、毎週一回の全社会議だけは全員出席する必要があります。この全社会議が「&lt;strong&gt;みんなの会（Town Hall Meeting）&lt;/strong&gt;」です。ここでは各チームの進捗報告やリリースされた機能の発表、事務連絡や新メンバーの紹介などを行っています。（以前は「全体進捗会議」という名前でしたが、社内投票の結果、この名前になりました。）&lt;/p&gt;
+
+&lt;p&gt;私が入社した2011年当時、オフィスは東京だけで、全体会議の出席メンバーも20人ぐらいでしたので、会議室に全員入り切るぐらいでした。それからオフィスも2回移転して、上海、シンガポール、香港と海外にも拠点も広がり、全体で160人前後のメンバーになりました。今でも全員が出席するスタイルでの会議は続いているのですが、各海外拠点への生中継を毎回行うようになり、海外メンバーからの発表や質問なども可能にしています。&lt;/p&gt;
+
+&lt;p&gt;このシステムの構築やオペレーションには私もかかわっており、試行錯誤を続けながらバージョンアップしてきました。この記事では、そんな「みんなの会」を支えている現在のシステムについて少しご紹介したいと思います。&lt;/p&gt;
+
+&lt;p&gt;なお、「みんなの会」については、先日公開されたSELECKの記事や、本ブログの竹内（当社チーフテクノロジスト）の記事でもご紹介しています。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://seleck.cc/article/11&quot;&gt;ベンチャーからグローバル企業へ　ユーザベースCTOが作った「ニコ動」式の全社会議 | SELECK&lt;/a&gt;&lt;cite class=&quot;hatena-citation&quot;&gt;&lt;a href=&quot;https://seleck.cc/article/11&quot;&gt;seleck.cc&lt;/a&gt;&lt;/cite&gt;
+&lt;a href=&quot;http://tech.uzabase.com/entry/2015/06/01/143202&quot;&gt;ニコニコメソッドプレゼンを全社会議に取り入れてみたら会議が面白くなった - UZABASE Tech Blog&lt;/a&gt;&lt;cite class=&quot;hatena-citation&quot;&gt;&lt;a href=&quot;http://tech.uzabase.com/entry/2015/06/01/143202&quot;&gt;tech.uzabase.com&lt;/a&gt;&lt;/cite&gt;&lt;/p&gt;
+
+&lt;h3&gt;目次&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#1&quot;&gt;Zoomを使って全世界と中継&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#2&quot;&gt;スライドの配信もZoomの画面共有で&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#3&quot;&gt;「参加者の顔が見えること」が何より重要&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#4&quot;&gt;Wii Uのマイクも使って音声環境を改善&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#5&quot;&gt;有志メンバーによる同時通訳&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#6&quot;&gt;ニコニコメソッドプレゼンで一体感のあるコミュニケーション&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#7&quot;&gt;まとめ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2&gt;&lt;a name=&quot;1&quot;&gt;&lt;/a&gt;Zoomを使って全世界と中継&lt;/h2&gt;
+
+&lt;p&gt;「みんなの会」の中心となるWeb会議システムですが、&lt;a href=&quot;http://zoom.us/&quot;&gt;「Zoom」&lt;/a&gt;という製品を使用しています。いろいろな製品がある中で、「Zoom」では最大100ユーザまで同時接続可能というところが大きな特長です。&lt;/p&gt;
+
+&lt;p&gt;ユーザベースで現在使用しているのは25ユーザまでのプランで、海外拠点の各メンバーが接続するだけでなく、在宅や出張先からのリモートでの参加も出来ています。&lt;/p&gt;
+
+&lt;p&gt;なお、Zoomの無料アカウントでは最大40分で会議が切れてしまうという制限があるため、長時間会議を行う場合はProアカウント（$9.99/Month）が必要になります。&lt;/p&gt;
+
+&lt;p&gt;会議への参加は、主催者からの招待メール中のリンクをクリックすることで行いますが、初めて参加する場合はアプリのインストールも自動的に行われます。&lt;/p&gt;
+
+&lt;p&gt;Windows、Macはもちろん、iPad・iPhoneやAndroid用のアプリも公開されていて、スマートフォンでも後述の画面共有やチャットを含めた一通りの機能が可能です。&lt;/p&gt;
+
+&lt;p&gt;「Zoom」はなかなか高機能でよく出来ていると思うのですが、「Skype」などに比べると若干取っつきにくいためか、日本ではあまり知られていなさそうです。これからの普及に期待しています。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://zoom.us/&quot;&gt;Video Conferencing, Web Conferencing, Online Meetings, Screen Sharing&lt;/a&gt;&lt;cite class=&quot;hatena-citation&quot;&gt;&lt;a href=&quot;http://zoom.us/&quot;&gt;zoom.us&lt;/a&gt;&lt;/cite&gt;&lt;/p&gt;
+
+&lt;h2&gt;&lt;a name=&quot;2&quot;&gt;&lt;/a&gt;スライドの配信もZoomの画面共有で&lt;/h2&gt;
+
+&lt;p&gt;「みんなの会」では、東京オフィスのプロジェクター画面に、発表内容をまとめたプレゼンテーションファイルを映します。同時に、「Zoom」の画面共有機能によって、海外やリモートでの参加者にも同じ画面が表示できます。&lt;/p&gt;
+
+&lt;p&gt;リモート表示ではレスポンスが気になるところですが、スライド切り替え時の反映もスムーズですし、画質がオリジナルより大きく劣ることもありませんので、十分実用的だと思います。&lt;/p&gt;
+
+&lt;p&gt;「Zoom」の画面共有では、共有対象のウィンドウをアプリ単位もしくはデスクトップ全体で指定します。「みんなの会」のプレゼンテーションファイルはGoogle Driveのスライド形式（Googleスライド）で作成しており、ブラウザにてプレゼンテーションを行いますので、Google Chromeのウィンドウを共有しています。ケースバイケースですが、他の会議では、お手軽にデスクトップ全体を共有することも多いです。&lt;/p&gt;
+
+&lt;p&gt;ところで、スライドを開いて、メニューから「プレゼンテーションを開始」を実行すると、プレゼンテーションが全画面で表示されますが、Zoomでブラウザウィンドウを共有している場合は、全画面表示は共有対象外となるので、他のユーザにスライド画面が映らなくなってしまいます。&lt;/p&gt;
+
+&lt;p&gt;そこで、Google Chromeを使用する場合のみですが、「スピーカーノートを使って開始」のメニューを実行すると、ブラウザのタブ内にプレゼンテーション画面が表示されます。少しマニアックな話ですが、Zoomを使ってGoogleスライドの画面共有を行う場合はこの方法がおすめです。&lt;/p&gt;
+
+&lt;p&gt;ちなみにGoogleスライドですが、PowerPoint等と比較すると凝ったデザインや動きのものは作成しにくいですが、一つのファイルを複数人で同時に編集することが可能で、マージや差し替えの手間が省けるので、こういった会議の資料作成には非常に便利です。&lt;/p&gt;
+
+&lt;p&gt;なお、PowerPoint等のプレゼンテーションファイルからの変換も可能ですが、レイアウトが崩れることが多いので、注意が必要です。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.google.com/intl/ja_jp/drive/&quot;&gt;Google ドライブ - 写真やドキュメントなど、ファイルのクラウド ストレージとバックアップ&lt;/a&gt;&lt;cite class=&quot;hatena-citation&quot;&gt;&lt;a href=&quot;https://www.google.com/intl/ja_jp/drive/&quot;&gt;www.google.com&lt;/a&gt;&lt;/cite&gt;&lt;/p&gt;
+
+&lt;h2&gt;&lt;a name=&quot;3&quot;&gt;&lt;/a&gt;「参加者の顔が見えること」が何より重要&lt;/h2&gt;
+
+&lt;p&gt;「Zoom」では、会議の参加者の映像を画面に映すことが可能です。参加者がカメラを持っている場合に限定されますが、やはり声だけ聞こえるよりも、顔の表情も一緒に見えるのは重要なポイントだと思います。&lt;/p&gt;
+
+&lt;p&gt;なお、東京オフィスの場合は会議室に何十人ものメンバーが集まるので、通常のWebカメラでは全員を1つの画面に映すことは困難です。そこでいろいろ試しているので、少し紹介します。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;BUFFALOの&lt;a href=&quot;http://buffalo.jp/product/multimedia/web-camera/bsw180abk/&quot;&gt;「BSW180ABK」&lt;/a&gt;というWebカメラは、180°の広角レンズで会議室全体の様子を映すことが出来て便利です。
+ただし、ズーム機能も無いため、細かい部分を映すのには向いていません。&lt;/li&gt;
+&lt;li&gt;発表者の表情が見えなかったり、質問者が誰か分からないという意見が挙がっていたので、私物のDVビデオカメラを持ち込んでみました。カメラマンが発表者や質問者にズームしたり、会議室全体を映したりと工夫出来るし、映りが良いと好評なようです。&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;しばらくはDVビデオカメラを使用してみたいと思いますが、段々と設備が大がかりになってきました。&lt;/p&gt;
+
+&lt;p&gt;なお、MacへのDVビデオカメラの接続ですが、&lt;a href=&quot;http://store.apple.com/jp/product/MD464ZM&quot;&gt;「Thunderbolt - FireWireアダプタ」&lt;/a&gt;と9pin-4pinのFireWireケーブルを使用しています。これで、MacからはWebカメラと同様のビデオデバイスとして認識されますので、Zoomの設定画面にて選択することが可能になります。&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&quot;hatena-asin-detail&quot;&gt;&lt;a href=&quot;http://www.amazon.co.jp/exec/obidos/ASIN/B00E0D1RWI/hatena-blog-22/&quot;&gt;&lt;img src=&quot;http://ecx.images-amazon.com/images/I/31kRCg1Rh-L._SL160_.jpg&quot; class=&quot;hatena-asin-detail-image&quot; alt=&quot;iBUFFALO マイク内蔵60万画素WEBカメラ 180°広角モデル BSW180ABK&quot; title=&quot;iBUFFALO マイク内蔵60万画素WEBカメラ 180°広角モデル BSW180ABK&quot;&gt;&lt;/a&gt;&lt;div class=&quot;hatena-asin-detail-info&quot;&gt;&lt;p class=&quot;hatena-asin-detail-title&quot;&gt;&lt;a href=&quot;http://www.amazon.co.jp/exec/obidos/ASIN/B00E0D1RWI/hatena-blog-22/&quot;&gt;iBUFFALO マイク内蔵60万画素WEBカメラ 180°広角モデル BSW180ABK&lt;/a&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;span class=&quot;hatena-asin-detail-label&quot;&gt;出版社/メーカー:&lt;/span&gt; バッファロー&lt;/li&gt;&lt;li&gt;&lt;span class=&quot;hatena-asin-detail-label&quot;&gt;発売日:&lt;/span&gt; 2013/08/25&lt;/li&gt;&lt;li&gt;&lt;span class=&quot;hatena-asin-detail-label&quot;&gt;メディア:&lt;/span&gt; Personal Computers&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;http://d.hatena.ne.jp/asin/B00E0D1RWI/hatena-blog-22&quot; target=&quot;_blank&quot;&gt;この商品を含むブログを見る&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;div class=&quot;hatena-asin-detail-foot&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;hatena-asin-detail&quot;&gt;&lt;a href=&quot;http://www.amazon.co.jp/exec/obidos/ASIN/B008RXYOKY/hatena-blog-22/&quot;&gt;&lt;img src=&quot;http://ecx.images-amazon.com/images/I/21sRgqMdUKL._SL160_.jpg&quot; class=&quot;hatena-asin-detail-image&quot; alt=&quot;アップル Thunderbolt - FireWireアダプタ MD464ZM/A&quot; title=&quot;アップル Thunderbolt - FireWireアダプタ MD464ZM/A&quot;&gt;&lt;/a&gt;&lt;div class=&quot;hatena-asin-detail-info&quot;&gt;&lt;p class=&quot;hatena-asin-detail-title&quot;&gt;&lt;a href=&quot;http://www.amazon.co.jp/exec/obidos/ASIN/B008RXYOKY/hatena-blog-22/&quot;&gt;アップル Thunderbolt - FireWireアダプタ MD464ZM/A&lt;/a&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;span class=&quot;hatena-asin-detail-label&quot;&gt;出版社/メーカー:&lt;/span&gt; アップル&lt;/li&gt;&lt;li&gt;&lt;span class=&quot;hatena-asin-detail-label&quot;&gt;メディア:&lt;/span&gt; Personal Computers&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;http://d.hatena.ne.jp/asin/B008RXYOKY/hatena-blog-22&quot; target=&quot;_blank&quot;&gt;この商品を含むブログを見る&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;div class=&quot;hatena-asin-detail-foot&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
+
+&lt;h2&gt;&lt;a name=&quot;4&quot;&gt;&lt;/a&gt;Wii Uのマイクも使って音声環境を改善&lt;/h2&gt;
+
+&lt;p&gt;「みんなの会」では、海外を含めて、毎回20台ぐらいのPCがWeb会議に参加しています。&lt;/p&gt;
+
+&lt;p&gt;インターネットを使用しているので、一時的に音声が途切れたりする時もありますが、音声の品質や遅延はあまり気にならないため、その点でもZoomは高評価です。&lt;/p&gt;
+
+&lt;p&gt;ところで、会議室に複数の人が集まってWeb会議に参加する場合、通常ではマイクは一つだけ設置すると思いますが、マイクから離れた場所にいる人の声が聞き取りづらく、聞く側にとってストレスになることがしばしばあります。&lt;/p&gt;
+
+&lt;p&gt;そこで、マイクについてもいろいろ試しているので、少し紹介いたします。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;SANWA DIRECTの&lt;a href=&quot;http://direct.sanwa.co.jp/ItemPage/400-MC001&quot;&gt;「400-MC001」&lt;/a&gt;というUSB接続のスタンドマイクは、高集音かつ全指向性の本格的な製品です。
+声の大きさにもよりますが、10mぐらい離れた場所に座っている人の発言でもちゃんと拾ってくれるので、なかなか優秀です。&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.nintendo.co.jp/wiiu/hardware/accessories/index.html&quot;&gt;Nitendo Wii U&lt;/a&gt;のワイヤレスマイク「WUP-019」ですが、実はWindowsやMacでも使用することが出来ます。マイクのレシーバーをUSB端子に差すだけで、Macから音声入力デバイスと認識されるので、とても簡単です。音声も非常にクリアに聞こえるので、大いに活用しています。&lt;/li&gt;
+&lt;li&gt;Wii Uでは2本同時に使用出来るそうなので、Macにワイヤレスマイク「WUP-019」を2台繋いでみましたが、残念ながら1つしか認識しないようです。&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;ワイヤレスマイクとスタンドマイクを同時に使用することが出来れば最高なのですが、Zoomではマイク、スピーカーとも1つのデバイスしか設定出来ません。&lt;/p&gt;
+
+&lt;p&gt;そこで、何か手は無いかと探したところ、Macでは以下のソフトウェアを組み合わせることで可能ということが分かりました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://code.google.com/p/soundflower/&quot;&gt;Soundflower&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;「仮想サウンドデバイス」で、例えばMacでインターネット中継を行う時に、同じMacで再生した音楽ファイルを配信するような場合に使用出来ます。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.kawauso.com/ladiocast&quot;&gt;LadioCast&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;複数デバイスからの音声入力をミックスしたり、複数デバイスに出力することの出来るミキサーです。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;LadioCastでワイヤレスマイクと集音マイクをミキシングしてSoundflowerに出力し、Zoomの音声入力デバイスとしてSoundflowerを指定することで、両方のマイクの音声がWeb会議の参加者に聞こえるという仕組みです。&lt;/p&gt;
+
+&lt;p&gt;これによって、発表者がワイヤレスマイクで話しながら、聴衆の拍手や笑い声を集音マイクで同時に拾うことが出来ています。さらに、LadioCastで発表者の声に合わせて音量を調整することで、より聞き取りやすくなっていると思います。&lt;/p&gt;
+
+&lt;p&gt;また、現在のオフィスでは、HDMI出力のプロジェクタにスピーカーが付いており、東京オフィス以外のメンバーの発言はこのプロジェクターから聞こえます。&lt;/p&gt;
+
+&lt;p&gt;ハウリングを避けるため、通常ではマイクの音はスピーカーから聞こえないのですが、LadioCastの設定を工夫して、ワイヤレスマイクの音声のみ、プロジェクターに出すようにしています。東京オフィスのように広い部屋では、発表者の声が聞こえにくいこともあるので、この簡易拡声器機能がとても便利です。&lt;/p&gt;
+
+&lt;p&gt;なお、「Zoom」に参加している各メンバーは、基本的にマイクはミュート状態で、発言時のみマイクをオンにするようにしています。そのままでは、キーボードの操作音や周囲の会話などを拾ってしまうためです。&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&quot;hatena-asin-detail&quot;&gt;&lt;a href=&quot;http://www.amazon.co.jp/exec/obidos/ASIN/B008F1S3PU/hatena-blog-22/&quot;&gt;&lt;img src=&quot;http://ecx.images-amazon.com/images/I/41GPhvAFODL._SL160_.jpg&quot; class=&quot;hatena-asin-detail-image&quot; alt=&quot;サンワダイレクト WEB会議マイク USBマイク PCマイク 高集音 全指向性&amp;単一指向性 400-MC001&quot; title=&quot;サンワダイレクト WEB会議マイク USBマイク PCマイク 高集音 全指向性&amp;単一指向性 400-MC001&quot;&gt;&lt;/a&gt;&lt;div class=&quot;hatena-asin-detail-info&quot;&gt;&lt;p class=&quot;hatena-asin-detail-title&quot;&gt;&lt;a href=&quot;http://www.amazon.co.jp/exec/obidos/ASIN/B008F1S3PU/hatena-blog-22/&quot;&gt;サンワダイレクト WEB会議マイク USBマイク PCマイク 高集音 全指向性&amp;単一指向性 400-MC001&lt;/a&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;span class=&quot;hatena-asin-detail-label&quot;&gt;出版社/メーカー:&lt;/span&gt; サンワダイレクト&lt;/li&gt;&lt;li&gt;&lt;span class=&quot;hatena-asin-detail-label&quot;&gt;メディア:&lt;/span&gt; Personal Computers&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;http://d.hatena.ne.jp/asin/B008F1S3PU/hatena-blog-22&quot; target=&quot;_blank&quot;&gt;この商品を含むブログを見る&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;div class=&quot;hatena-asin-detail-foot&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;hatena-asin-detail&quot;&gt;&lt;a href=&quot;http://www.amazon.co.jp/exec/obidos/ASIN/B00FKSWGVI/hatena-blog-22/&quot;&gt;&lt;img src=&quot;http://ecx.images-amazon.com/images/I/41DTcM%2BHU5L._SL160_.jpg&quot; class=&quot;hatena-asin-detail-image&quot; alt=&quot;Wii U ワイヤレスマイク&quot; title=&quot;Wii U ワイヤレスマイク&quot;&gt;&lt;/a&gt;&lt;div class=&quot;hatena-asin-detail-info&quot;&gt;&lt;p class=&quot;hatena-asin-detail-title&quot;&gt;&lt;a href=&quot;http://www.amazon.co.jp/exec/obidos/ASIN/B00FKSWGVI/hatena-blog-22/&quot;&gt;Wii U ワイヤレスマイク&lt;/a&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;span class=&quot;hatena-asin-detail-label&quot;&gt;出版社/メーカー:&lt;/span&gt; 任天堂&lt;/li&gt;&lt;li&gt;&lt;span class=&quot;hatena-asin-detail-label&quot;&gt;発売日:&lt;/span&gt; 2013/12/12&lt;/li&gt;&lt;li&gt;&lt;span class=&quot;hatena-asin-detail-label&quot;&gt;メディア:&lt;/span&gt; Video Game&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;http://d.hatena.ne.jp/asin/B00FKSWGVI/hatena-blog-22&quot; target=&quot;_blank&quot;&gt;この商品を含むブログを見る&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;div class=&quot;hatena-asin-detail-foot&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;a href=&quot;https://code.google.com/p/soundflower/&quot;&gt;https://code.google.com/p/soundflower/&lt;/a&gt;&lt;cite class=&quot;hatena-citation&quot;&gt;&lt;a href=&quot;https://code.google.com/p/soundflower/&quot;&gt;code.google.com&lt;/a&gt;&lt;/cite&gt;
+&lt;a href=&quot;http://blog.kawauso.com/ladiocast&quot;&gt;http://blog.kawauso.com/ladiocast&lt;/a&gt;&lt;cite class=&quot;hatena-citation&quot;&gt;&lt;a href=&quot;http://blog.kawauso.com/ladiocast&quot;&gt;blog.kawauso.com&lt;/a&gt;&lt;/cite&gt;&lt;/p&gt;
+
+&lt;h2&gt;&lt;a name=&quot;5&quot;&gt;&lt;/a&gt;有志メンバーによる同時通訳&lt;/h2&gt;
+
+&lt;p&gt;海外のオフィスも繋いで会議を行う場合に避けられない問題として、言語の壁があります。これについても、様々なトライアルを行ってきました。&lt;/p&gt;
+
+&lt;p&gt;例えば、「みんなの会」を資料・発表とも英語で行っていた時期もありました。ユーザベースには英語の得意なメンバーも多いので、各チームとも流暢な英語にて発表が行われていましたが、もちろん全員そうではありません。私は英語が得意ではないので、事前に英訳した原稿を用意して臨んだのですが、ちゃんと伝わっていたのか怪しく、申し訳なかったです。&lt;/p&gt;
+
+&lt;p&gt;現在は、日本語版の資料と英語版の資料を用意して、2画面あるプロジェクターに片方ずつ映すようにしています。なお、Zoomで共有するのは英語版のみで、日本語版の画面はそれ専用のPCで映しています。ページ送りはそれぞれ手動で進めていますが、自動的に同期する仕組みも構想中です。&lt;/p&gt;
+
+&lt;p&gt;発表は当人の得意な言語で行われますが、Zoomのチャットで、有志メンバーによる同時翻訳が行われています。このため、プロジェクター画面に、プレゼンテーション資料とチャット画面を並べて映しています。翻訳を行うメンバーは、会議室に持ち込んだPCからZoomの会議に参加して、日本語の発表や質問は英語に、英語の発表や質問は日本語に訳して、リアルタイムにチャットに投稿しています。&lt;/p&gt;
+
+&lt;p&gt;また、チャットによる文字の通訳だけでは思いが伝わりにくいということで、さらに有志の方に立候補していただき、発表の同時通訳にもチャレンジしています。発表と通訳を交互に行う逐次通訳では倍の時間が必要なので、同時通訳で行うのが理想ですが、システム面での難易度も上がります。&lt;/p&gt;
+
+&lt;p&gt;そもそも、Web会議システムで二カ国語の音声に対応しているものはあまり無いようで、Zoomもサポートしていません。そこで、Zoomとは別の、通訳音声用の独立した会議システムにて配信しています。具体的には、各オフィスの専用PCをSkypeで繋いでおり、海外オフィス側でもSkype用のPCで通訳の音声を受信しています。通訳の音声はオフィス全体にスピーカーで流しており、各メンバーは必要に応じてZoomの音声と聞き分けています。&lt;/p&gt;
+
+&lt;p&gt;このような構成にしている理由は、当初は1台でZoomとSkypeを両方配信しようとしたのですが、配信側も受信側も準備にも時間がかかるし、PCの動作も不安定になってしまったためです。「みんなの会」は全社で行う会議ですので、トラブルが起きた場合でもすぐ復旧出来るように、なるべくシンプルな構成を心がけています。&lt;/p&gt;
+
+&lt;p&gt;なお、資料に沿った発表だけとは限らないし、専門用語が多く出てくる内容もあるので、翻訳を引き受けていただいている方々にはとても感謝しています。当社代表・新野による「白熱教室」という、その場でのディスカッションが主体となることもあるのですが、そういう会では翻訳がかなりハードだそうです。&lt;/p&gt;
+
+&lt;h2&gt;&lt;a name=&quot;6&quot;&gt;&lt;/a&gt;ニコニコメソッドプレゼンで一体感のあるコミュニケーション&lt;/h2&gt;
+
+&lt;p&gt;「みんなの会」に社員がもっと参加するための仕組みとして、当社オリジナルの“字幕コメントシステム”を取り入れました。これは、Google Chromeの機能拡張を使って、発表内容についての参加者からのコメントを、ニコニコ動画のようにプレゼンテーション画面上に字幕で流すものです。本記事の冒頭に示した画像が、スライドに字幕コメントがつけられている様子です。（ブログで紹介用に弾幕を貼ってもらいました。）&lt;/p&gt;
+
+&lt;p&gt;このシステムは、当社チーフテクノロジストの竹内が一晩で作成したそうです。これについては、当ブログにて竹内から技術背景についてご紹介しました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://tech.uzabase.com/entry/2015/06/01/143202&quot;&gt;ニコニコメソッドプレゼンを全社会議に取り入れてみたら会議が面白くなった - UZABASE Tech Blog&lt;/a&gt;&lt;cite class=&quot;hatena-citation&quot;&gt;&lt;a href=&quot;http://tech.uzabase.com/entry/2015/06/01/143202&quot;&gt;tech.uzabase.com&lt;/a&gt;&lt;/cite&gt;
+&lt;a href=&quot;https://github.com/chimerast/niconico-speenya&quot;&gt;chimerast/niconico-speenya&lt;/a&gt;&lt;cite class=&quot;hatena-citation&quot;&gt;&lt;a href=&quot;https://github.com/chimerast/niconico-speenya&quot;&gt;github.com&lt;/a&gt;&lt;/cite&gt;&lt;/p&gt;
+
+&lt;p&gt;全社会議というと真面目で少し堅いイメージがありますので、当初はこのようなコンテンツが受け入れられるのか不安でした。ところが、いざ始めて見ると予想以上に好評で、もはや「みんなの会」に無くてはならないツールになりました。&lt;/p&gt;
+
+&lt;p&gt;例えば、SPEEDAやNewsPicksの新機能のリリースについての報告では、「いいね！」のマークが画面を埋め尽くしたり、バックオフィスからの経費精算手順の説明では、いつも間違っていた人から「すみませんでした」というコメントがあったり…。今までよりもリアクションが遙かにしやすくなり、会議に参加しているという意識が強くなって、「みんなの会」の雰囲気もかなり変わったと思います。&lt;/p&gt;
+
+&lt;h2&gt;&lt;a name=&quot;7&quot;&gt;&lt;/a&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;今回の記事では、「みんなの会」のシステムについて、一通りご紹介いたしました。まだまだ完成形とは言えず、課題も多いのですが、その一方でかなり複雑になってしまっているので、よりシンプルにしていきたいと思います。機会があれば、さらに細かい部分についても、詳しく説明してみたいと思います。&lt;/p&gt;
+
+&lt;p&gt;ユーザベースの「世界一の経済メディアをつくる」というミッション実現のため、今後さらに社員数も増え、新しいオフィスも開設されていくと思います。物理的な距離があっても、「みんなの会」には全てのメンバーが同じように参加出来るべきです。完全な実現は難しいかもしれませんが、メンバーのアイデアとテクノロジーの力で、少しでも理想に近付けられればと思います。&lt;/p&gt;
+
+&lt;p&gt;ユーザベースでは、SPEEDAやNewsPicksに携わっていただくエンジニアを募集中です。こういったシステム構築や、企業カルチャーをつくる「みんなの会」などの取り組みに興味のある方も、採用ページやWantedlyからお気軽にご連絡ください。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.uzabase.com/career/#career-sec1&quot;&gt;CAREER | 株式会社ユーザベース | UZABASE, Inc.&lt;/a&gt;&lt;cite class=&quot;hatena-citation&quot;&gt;&lt;a href=&quot;http://www.uzabase.com/career/#career-sec1&quot;&gt;www.uzabase.com&lt;/a&gt;&lt;/cite&gt;
+&lt;a href=&quot;https://www.wantedly.com/projects/11448&quot;&gt;100年に一度のメディア変革期！世界一のニュースプラットフォームを創ろう by 株式会社ユーザベース&lt;/a&gt;&lt;cite class=&quot;hatena-citation&quot;&gt;&lt;a href=&quot;https://www.wantedly.com/projects/11448&quot;&gt;www.wantedly.com&lt;/a&gt;&lt;/cite&gt;
+&lt;a href=&quot;https://www.wantedly.com/projects/11497&quot;&gt;巨大金融メディアに打ち勝つサービスをつくりたいエンジニアWanted! by 株式会社ユーザベース&lt;/a&gt;&lt;cite class=&quot;hatena-citation&quot;&gt;&lt;a href=&quot;https://www.wantedly.com/projects/11497&quot;&gt;www.wantedly.com&lt;/a&gt;&lt;/cite&gt;
+&lt;a href=&quot;https://www.wantedly.com/projects/19575&quot;&gt;情報社会にイノベーションを起こせ！エンジニアインターン募集 by 株式会社ユーザベース&lt;/a&gt;&lt;cite class=&quot;hatena-citation&quot;&gt;&lt;a href=&quot;https://www.wantedly.com/projects/19575&quot;&gt;www.wantedly.com&lt;/a&gt;&lt;/cite&gt;&lt;/p&gt;
+</description>
+          <pubDate>Tue, 02 Jun 2015 18:33:35 +0900</pubDate>
+          <guid isPermalink="false">hatenablog://entry/8454420450087345655</guid>
+          
+        </item>
+      
+    
+      
+        <item>
+          <title>ニコニコメソッドプレゼンを全社会議に取り入れてみたら会議が面白くなった</title>
+          <link>http://tech.uzabase.com/entry/2015/06/01/143202</link>
+          <description>&lt;p&gt;技術チーム竹内(@&lt;a class=&quot;twitter-user-screen-name&quot; href=&quot;http://twitter.com/chimerast&quot;&gt;chimerast&lt;/a&gt;)です。&lt;/p&gt;
+
+&lt;p&gt;作ったものが知らない間に&lt;a href=&quot;https://seleck.cc/article/11&quot;&gt;記事&lt;/a&gt;のネタにされていたので、どんな仕組みで動いているか技術的なところについて書いてみます。どう使われているかの細かい話は、後日ブログ内に別の記事が上がる予定です。&lt;/p&gt;
+
+&lt;p&gt;&lt;i&gt;（6/2 追記：「みんなの会」の動画配信システムについて記事を投稿しました。&lt;/i&gt;）
+&lt;a href=&quot;http://tech.uzabase.com/entry/2015/06/02/183335&quot;&gt;ユーザベースの自由な社風を支える「みんなの会」のつくり方（動画環境編） - UZABASE Tech Blog&lt;/a&gt;&lt;cite class=&quot;hatena-citation&quot;&gt;&lt;a href=&quot;http://tech.uzabase.com/entry/2015/06/02/183335&quot;&gt;tech.uzabase.com&lt;/a&gt;&lt;/cite&gt;&lt;/p&gt;
+
+&lt;h3&gt;全社会議で「ニコニコメソッドプレゼン」&lt;/h3&gt;
+
+&lt;p&gt;だいぶ昔にWeb業界界隈で話題になった(?)ニコニコメソッドプレゼンを、週一の全社会議で取り入れたところ、プレゼンのエンタメ性が増して以前よりだいぶ面白いものになりました。プレゼンを聞く側の一体感がでて面白くなったのに加え、プレゼンする側としても、今まで聞いてるんだか聞いていないんだかよくわからない状態だったのが、反応が目に見えるようになってやりやすくなりました。&lt;/p&gt;
+
+&lt;p&gt;ニコニコメソッドプレゼンとは、視聴者がスマホ等でコメントを入力して、そのコメントがニコニコ動画のようにプレゼン資料の上に流れる、視聴者参加型のプレゼンです。&lt;/p&gt;
+
+&lt;p&gt;やるとこんな感じになります(全社会議内でやっている社員の自己紹介タイム)↓&lt;/p&gt;
+
+
+
+
+&lt;p&gt;ニコニコメソッドを取り入れることになったきっかけは、全社会議への参加者のコミットメントをどうやったら上げることが出来るかどうかみたいな事を話し合った際に、&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;発言しようにも人数が多くなって発言しづらい雰囲気ができあがってしまっている&lt;/li&gt;
+&lt;li&gt;海外拠点等のリモートからの参加時に、発言がしづらかったり、会議の盛り上がり具合が伝わりにくい&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;という声があがり、その解決策として、&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ニコニコ動画みたいに横から匿名の突っ込みを入れるようにできたら発言の機会が増えるんじゃないか&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;という意見が出たことによるものです。&lt;/p&gt;
+
+&lt;p&gt;ちょうど、視聴者参加型プレゼンツールを作ってみたいなと思っていたこともあり、一晩夜なべして作りました。&lt;/p&gt;
+
+&lt;h3&gt;作ったもの: Chrome機能拡張「NicoNico SPEENYA」&lt;/h3&gt;
+
+&lt;p&gt;(Chromeウェブストアでの公開はしてません)&lt;/p&gt;
+
+&lt;p&gt;全社会議では、色んなチームが進捗報告することもあり、全員で一つのプレゼン資料を編集出来るGoogle Slidesを使用して発表を行っています。&lt;/p&gt;
+
+&lt;p&gt;プレゼンのためのほかのツールを使ったり作ったりすることは、移行コストや作成コストの面で考えられなかったので、Google Slidesをそのまま使うことにして、Chrome機能拡張でその上にコメントを重ねるようなものを作りました。&lt;/p&gt;
+
+&lt;p&gt;コメントをするだけでは面白くないので、いいねボタンをつけて、押すと親指の画像が浮き上がって消えるような機能や、それを応用して任意の画像を送り込むような機能もつけてます。&lt;/p&gt;
+
+&lt;p&gt;&lt;span itemscope itemtype=&quot;http://schema.org/Photograph&quot;&gt;&lt;img src=&quot;http://cdn-ak.f.st-hatena.com/images/fotolife/c/chimerast/20150531/20150531234517.gif&quot; alt=&quot;f:id:chimerast:20150531234517g:plain&quot; title=&quot;f:id:chimerast:20150531234517g:plain&quot; class=&quot;hatena-fotolife&quot; itemprop=&quot;image&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;プログラムはGitHub上でひっそり公開しています。一般向けに機能拡張およびサーバを公開することも考えたのですが、チャンネル機能を作るモチベーションがわかないのと、セキュリティの事を考えると使う人ごとにサーバ立ててもらった方が良い気がするので、そのままにしています。&lt;/p&gt;
+
+&lt;p&gt;Forkして拡張していただいたり、面白い機能をつけてPull Requestを送っていただけるとうれしいです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/chimerast/niconico-speenya&quot;&gt;chimerast/niconico-speenya &amp;middot; GitHub&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;作るのに使ったもの&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://socket.io/&quot;&gt;Socket.IO&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.chrome.com/extensions/getstarted&quot;&gt;Google Chrome機能拡張&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.w3.org/TR/web-animations/&quot;&gt;Web Animations API&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://nodejs.org/&quot;&gt;Node.js&lt;/a&gt; + &lt;a href=&quot;http://expressjs.com/&quot;&gt;Express&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;Socket.IO&lt;/h4&gt;
+
+&lt;p&gt;ブラウザで双方向の何かをつくる場合は鉄板の選択ですね。&lt;/p&gt;
+
+&lt;p&gt;Chrome機能拡張側でSocket.IOのサーバへの接続を行い、サーバ側からの通知を待って、コメントやイメージ表示の通知があったらそれを表示するという事をやっています。&lt;/p&gt;
+
+&lt;h4&gt;Google Chrome機能拡張&lt;/h4&gt;
+
+&lt;p&gt;Chromeには、表示される全てのページへJavaScriptを挿入するような機能拡張を作るための拡張ポイントが用意されているのでそれを使いました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developer.chrome.com/extensions/content_scripts&quot;&gt;Content Scripts - Google Chrome&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;これに加えて、ツールバーにボタンを置いて、コメント表示のON/OFFを切り替えられるようにしていたりします。&lt;/p&gt;
+
+&lt;h4&gt;Web Animations API&lt;/h4&gt;
+
+&lt;p&gt;あまり有名ではない機能だと思いますが、HTML5標準のアニメーションAPIです。jQuery.animate()と同じようなものだと思って良いと思います。&lt;/p&gt;
+
+&lt;p&gt;ブラウザネイティブなので、動作が軽かったりリソース消費が少なかったりするみたいです。ただし、まだドラフトなのでサポートしていないブラウザも多いです。&lt;/p&gt;
+
+&lt;p&gt;あまり依存ライブラリを増やしたくなかったのと、どんなもんなのか使ってみたかったのでアニメーションAPIとして採用しました。&lt;/p&gt;
+
+&lt;h4&gt;Node.js + Express&lt;/h4&gt;
+
+&lt;p&gt;こったことはせず、普通のAPIサーバとしての使い方をしています。Expressで待ち受けているURLにPOSTが送信されると、Socket.IOを呼び出して、Chrome機能拡張側に通知を行います。&lt;/p&gt;
+
+&lt;h3&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;視聴者参加型のプレゼンは盛り上がります。また、プレゼンする側も面白いプレゼンを作ろうという気になります。&lt;/p&gt;
+
+&lt;p&gt;プログラムの総行数はクライアントサーバ合わせて200行ぐらいです。ありものの機能を使うとさくさくっと作れます。&lt;/p&gt;
+
+&lt;h3&gt;宣伝&lt;/h3&gt;
+
+&lt;p&gt;ユーザベースでは、2015年6月14日(日)に、&lt;a href=&quot;http://e2d3.org/about-e2d3-2/?lang=ja&quot;&gt;E2D3プロジェクト&lt;/a&gt;と一緒にハッカソンを行います。&lt;/p&gt;
+
+&lt;p&gt;スマホでのデータビジュアライズ方法が、世の中で試行錯誤されている中、みんなで考えてみようというハッカソンです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://e2d3.connpass.com/event/14868/&quot;&gt;NewsPicks &amp;amp; SPEEDA スマートデータエクスペリエンス ハッカソン (2015/06/14 10:00〜)&lt;/a&gt;&lt;cite class=&quot;hatena-citation&quot;&gt;&lt;a href=&quot;http://e2d3.connpass.com/event/14868/&quot;&gt;e2d3.connpass.com&lt;/a&gt;&lt;/cite&gt;&lt;/p&gt;
+
+&lt;p&gt;ネタ的に面白いと思うので是非ご参加ください。&lt;/p&gt;
+
+&lt;p&gt;E2D3プロジェクトについてはまた別で記事を書こうと思います。&lt;/p&gt;
+</description>
+          <pubDate>Mon, 01 Jun 2015 14:32:02 +0900</pubDate>
+          <guid isPermalink="false">hatenablog://entry/8454420450095983310</guid>
+          
+        </item>
+      
+    
+      
+        <item>
+          <title>恵比寿のスタートアップエンジニアが集まる「えびスタ！」#2 を開催しました（ユーザベース、クックパッド、VASILY、エウレカ、はてな）</title>
+          <link>http://tech.uzabase.com/entry/2015/05/15/170206</link>
+          <description>&lt;p&gt;&lt;a href=&quot;http://tech.uzabase.com/entry/2015/04/10/194732&quot;&gt;既報&lt;/a&gt;の通り、恵比寿近辺のスタートアップエンジニアが集まる勉強会「えびスタ！」#2 を開催しました。少し遅れましたが開催レポートをお届けします。&lt;/p&gt;
+
+&lt;p&gt;&lt;span itemscope itemtype=&quot;http://schema.org/Photograph&quot;&gt;&lt;img src=&quot;http://cdn-ak.f.st-hatena.com/images/fotolife/u/uzabase/20150513/20150513145913.jpg&quot; alt=&quot;f:id:uzabase:20150513145913j:plain&quot; title=&quot;f:id:uzabase:20150513145913j:plain&quot; class=&quot;hatena-fotolife&quot; itemprop=&quot;image&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1&gt;発表資料&lt;/h1&gt;
+
+&lt;p&gt;第2回となる今回は、「大規模データの料理法」と題してユーザベース、クックパッド、VASILY、エウレカ、はてなのエンジニアが集まり、各社の事例をご紹介しました。発表内容と資料を以下にまとめます。&lt;/p&gt;
+
+&lt;h2&gt;アドベリフィケーションサービス「BrandSafe はてな」の裏側（株式会社はてな 山家 雄介）&lt;/h2&gt;
+
+&lt;blockquote&gt;&lt;p&gt;2014年8月に株式会社はてなの初のアドテクノロジープロダクトとしてリリースされた「BrandSafe はてな」について、システムを構成するアーキテクチャや、はてな特有のデータを活用して高精度にブランド毀損サイトを判定するための技術的アプローチ、DSP上で広告インプレッションがあった全URLをベースにした、膨大なアドベリフィケーションリクエストをさばくためのインフラ的な工夫などについてお話をする予定です。&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h3&gt;発表資料&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.google.com/presentation/d/1_m8XTOt4Rz--aVGN-qDtrmuaGLu9eWuBA-CRAJWBKt0/edit?usp=sharing&quot;&gt;アドベリフィケーションサービス「BrandSafe はてな」の裏側&lt;/a&gt;&lt;cite class=&quot;hatena-citation&quot;&gt;&lt;a href=&quot;https://docs.google.com/presentation/d/1_m8XTOt4Rz--aVGN-qDtrmuaGLu9eWuBA-CRAJWBKt0/edit?usp=sharing&quot;&gt;docs.google.com&lt;/a&gt;&lt;/cite&gt;&lt;/p&gt;
+
+&lt;h2&gt;企業・業界データサービスSPEEDAの複雑怪奇なデータとの格闘（株式会社ユーザベース 北内啓）&lt;/h2&gt;
+
+&lt;blockquote&gt;&lt;p&gt;急激に増加し続けるSPEEDAの企業データを扱う上での課題や取り組み、今後の展望などについて紹介します。&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h3&gt;発表資料&lt;/h3&gt;
+
+&lt;p&gt;  &lt;div style=&quot;margin-bottom:5px&quot;&gt; &lt;strong&gt; &lt;a href=&quot;https://www.slideshare.net/tau3000/speeda-47444622&quot; title=&quot;企業・業界データサービスSPEEDAの複雑怪奇なデータとの格闘&quot; target=&quot;_blank&quot;&gt;企業・業界データサービスSPEEDAの複雑怪奇なデータとの格闘&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&quot;http://www.slideshare.net/tau3000&quot; target=&quot;_blank&quot;&gt;Akira Kitauchi&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;&lt;cite class=&quot;hatena-citation&quot;&gt;&lt;a href=&quot;http://www.slideshare.net/tau3000/speeda-47444622&quot;&gt;www.slideshare.net&lt;/a&gt;&lt;/cite&gt;&lt;/p&gt;
+
+&lt;h2&gt;iQONのアプリ内のデータ分析基盤の紹介や分析手法について紹介します（今村雅幸 株式会社VASILY）&lt;/h2&gt;
+
+&lt;blockquote&gt;&lt;p&gt;iQONのアプリ内のデータ分析基盤の紹介や分析手法について紹介します&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h3&gt;発表資料&lt;/h3&gt;
+
+&lt;p&gt;&lt;cite class=&quot;hatena-citation&quot;&gt;&lt;a href=&quot;https://speakerdeck.com/kyuns/iqon-bigquery&quot;&gt;speakerdeck.com&lt;/a&gt;&lt;/cite&gt;&lt;/p&gt;
+
+&lt;h2&gt;ベンチャーならではRedShiftの低コスト運用（株式会社エウレカ 鉄本環）&lt;/h2&gt;
+
+&lt;blockquote&gt;&lt;p&gt;pairsではRedShiftを用いてマーケティングデータや、アルゴリズム解析をしていますが、 これを低価格で運用しているTIPSをお話いたします。&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h3&gt;発表資料&lt;/h3&gt;
+
+&lt;p&gt;&lt;cite class=&quot;hatena-citation&quot;&gt;&lt;a href=&quot;https://speakerdeck.com/tamaki0506/bentiyanaradehafalseredshiftdi-kosutoyun-yong&quot;&gt;speakerdeck.com&lt;/a&gt;&lt;/cite&gt;&lt;/p&gt;
+
+&lt;h2&gt;リアルタイム分析サービス『たべみる』を支える高可用性アーキテクチャ（クックパッド株式会社 井上寛之）&lt;/h2&gt;
+
+&lt;blockquote&gt;&lt;p&gt;「たべみる」は、クックパッドの検索データをウェブから分析できる法人向けのウェブサービスです。 そのアーキテクチャの特徴としてサービスのバックエンドDBとバッチの両方でRedshiftを使っていることが挙げられます。 今回は、Redshiftの可用性を高めるためのクックパッド独自のアーキテクチャについて紹介します。&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h3&gt;発表資料&lt;/h3&gt;
+
+ 
+
+
+&lt;p&gt; &lt;div style=&quot;margin-bottom:5px&quot;&gt; &lt;strong&gt; &lt;a href=&quot;//www.slideshare.net/inohiro/ebi-sta&quot; title=&quot;リアルタイム分析サービス『たべみる』を支える高可用性アーキテクチャ&quot; target=&quot;_blank&quot;&gt;リアルタイム分析サービス『たべみる』を支える高可用性アーキテクチャ&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&quot;//www.slideshare.net/inohiro&quot; target=&quot;_blank&quot;&gt;Hiroyuki Inoue&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;&lt;/p&gt;
+
+&lt;h1&gt;懇親会はエビスビールとピザ＋LT！&lt;/h1&gt;
+
+&lt;p&gt;懇親会ではピザと、恵比寿スタートアップということで&lt;b&gt;エビスビール&lt;/b&gt;をご用意しました。希望者によるLTもとても盛り上がりました。発表いただいた皆さまありがとうございました！&lt;/p&gt;
+
+&lt;p&gt;&lt;span itemscope itemtype=&quot;http://schema.org/Photograph&quot;&gt;&lt;img src=&quot;http://cdn-ak.f.st-hatena.com/images/fotolife/u/uzabase/20150513/20150513151035.jpg&quot; alt=&quot;f:id:uzabase:20150513151035j:plain&quot; title=&quot;f:id:uzabase:20150513151035j:plain&quot; class=&quot;hatena-fotolife&quot; itemprop=&quot;image&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;h2&gt;LT：GoWorker調査（大貫）&lt;/h2&gt;
+
+&lt;blockquote&gt;&lt;p&gt;データ処理を支えるGoWorkerあたりの紹介など&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h3&gt;発表資料&lt;/h3&gt;
+
+&lt;p&gt;（確認中）&lt;/p&gt;
+
+&lt;h2&gt;LT：E2D3プロジェクトの紹介（株式会社ユーザベース CTO たけうちひでゆき）&lt;/h2&gt;
+
+&lt;blockquote&gt;&lt;p&gt;Excelで様々なデータ可視化を行えるようになる予定の、E2D3というオープンソースで進めているプロジェクトを紹介します。&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h3&gt;発表資料&lt;/h3&gt;
+
+&lt;p&gt;  &lt;div style=&quot;margin-bottom:5px&quot;&gt; &lt;strong&gt; &lt;a href=&quot;https://www.slideshare.net/chimerast/e2d3-47364632&quot; title=&quot;E2D3プロジェクトのご紹介@えびスタ！&quot; target=&quot;_blank&quot;&gt;E2D3プロジェクトのご紹介@えびスタ！&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&quot;http://www.slideshare.net/chimerast&quot; target=&quot;_blank&quot;&gt;Hideyuki Takeuchi&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;&lt;cite class=&quot;hatena-citation&quot;&gt;&lt;a href=&quot;http://www.slideshare.net/chimerast/e2d3-47364632&quot;&gt;www.slideshare.net&lt;/a&gt;&lt;/cite&gt;&lt;/p&gt;
+
+&lt;h2&gt;LT：mecab-ipadic-NEologd の効果的な使い方（LINE株式会社 佐藤敏紀）&lt;/h2&gt;
+
+&lt;blockquote&gt;&lt;p&gt;「mecab-ipadic-NEologd」は 形態素解析エンジン MeCab のシステム辞書である IPA 辞書を拡張するオープンソースな辞書です。大きな特徴は「大量の新語・固有表現を読み仮名付きで採録されていること」と「最低でも月二回(初旬と中旬)、辞書データが更新されること」です。またライセンスは Apache License 2.0 ですので、安心して製品開発や研究にご利用いただけます。今回は「mecab-ipadic-NEologd」を実務で使う際にどうするべきかをお伝えし、使用例のデモをご紹介いたします。&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h3&gt;発表資料&lt;/h3&gt;
+
+&lt;p&gt;  &lt;div style=&quot;margin-bottom:5px&quot;&gt; &lt;strong&gt; &lt;a href=&quot;https://www.slideshare.net/overlast/effective-mecabipadicneologdebisuta-1&quot; title=&quot;mecab-ipadic-NEologd の効果的な使い方&quot; target=&quot;_blank&quot;&gt;mecab-ipadic-NEologd の効果的な使い方&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&quot;http://www.slideshare.net/overlast&quot; target=&quot;_blank&quot;&gt;Toshinori Sato&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;&lt;cite class=&quot;hatena-citation&quot;&gt;&lt;a href=&quot;http://www.slideshare.net/overlast/effective-mecabipadicneologdebisuta-1&quot;&gt;www.slideshare.net&lt;/a&gt;&lt;/cite&gt;&lt;/p&gt;
+
+&lt;h1&gt;恵比寿スタートアップを盛り上げていきます！&lt;/h1&gt;
+
+&lt;p&gt;スタートアップを追いかけている週アスPLUSによると、「スタートアップ集積地」として恵比寿が最近盛り上がってきているそうです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://weekly.ascii.jp/elem/000/000/334/334134/&quot;&gt;バイアウトが話題のエウレカほか注目企業多数！ 押さえておきたい恵比寿スタートアップ【2015年5月】&lt;/a&gt;&lt;cite class=&quot;hatena-citation&quot;&gt;&lt;a href=&quot;http://weekly.ascii.jp/elem/000/000/334/334134/&quot;&gt;weekly.ascii.jp&lt;/a&gt;&lt;/cite&gt;&lt;/p&gt;
+
+&lt;p&gt;えびスタ！では、恵比寿のスタートアップやエンジニアコミュニティを盛り上げるために今後もイベントを開催してまいります。運営する株式会社ユーザベース・株式会社ニューズピックスにご興味のある方は、以下のWantedlyなどからお気軽にご連絡ください！&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.wantedly.com/companies/uzabase-inc&quot;&gt;株式会社ユーザベースの最新情報 - Wantedly&lt;/a&gt;&lt;cite class=&quot;hatena-citation&quot;&gt;&lt;a href=&quot;https://www.wantedly.com/companies/uzabase-inc&quot;&gt;www.wantedly.com&lt;/a&gt;&lt;/cite&gt;&lt;/p&gt;
+</description>
+          <pubDate>Fri, 15 May 2015 17:02:06 +0900</pubDate>
+          <guid isPermalink="false">hatenablog://entry/8454420450094322238</guid>
+          
+        </item>
+      
+    
+      
+        <item>
+          <title>「えびスタ！#2 ~大規模データの調理法~ ユーザベースxクックパッドxVASILYxエウレカxはてな」開催のお知らせ</title>
+          <link>http://tech.uzabase.com/entry/2015/04/10/194732</link>
+          <description>&lt;p&gt;SPEEDA/NewsPicksを提供する株式会社ユーザベースでは、エンジニアの技術力向上と交流を目的として「えびスタ！（恵比寿スタートアップ勉強会）」を開催しています。2015年4月23日（木）に「えびスタ #2」を開催しますのでお知らせいたします。&lt;/p&gt;
+
+&lt;p&gt;&lt;span itemscope itemtype=&quot;http://schema.org/Photograph&quot;&gt;&lt;img src=&quot;http://cdn-ak.f.st-hatena.com/images/fotolife/u/uzabase/20150410/20150410193802.png&quot; alt=&quot;f:id:uzabase:20150410193802p:plain&quot; title=&quot;f:id:uzabase:20150410193802p:plain&quot; class=&quot;hatena-fotolife&quot; itemprop=&quot;image&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;第2回となる今回は、クックパッド、VASILY、エウレカ、そして特別ゲストとして京都からはてなのエンジニアをお呼びして開催します。各社の事例をもとに、アドテクを支える技術やRedShiftの活用法などについてお話する予定です。&lt;/p&gt;
+
+&lt;p&gt;また後半では軽食（エビスビールとピザ！）を交えたLTや交流会も開催予定です。恵比寿のスタートアップと語り合いたい、他社エンジニアと交流したいという方はぜひお気軽にご参加いただければと思います。（LT参加者も募集しています。LTしていただける方は応募時に「LTしたい！」とコメントください。）&lt;/p&gt;
+
+&lt;p&gt;イベント詳細や申し込みについては以下の connpass ページをご覧ください。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://ebista.connpass.com/event/13953/&quot;&gt;えびスタ！#2 ~大規模データの調理法~ ユーザベースxクックパッドxVASILYxエウレカxはてな (2015/04/23 19:00〜)&lt;/a&gt;&lt;cite class=&quot;hatena-citation&quot;&gt;&lt;a href=&quot;http://ebista.connpass.com/event/13953/&quot;&gt;ebista.connpass.com&lt;/a&gt;&lt;/cite&gt;&lt;/p&gt;
+</description>
+          <pubDate>Fri, 10 Apr 2015 19:47:32 +0900</pubDate>
+          <guid isPermalink="false">hatenablog://entry/8454420450091056412</guid>
+          
+        </item>
+      
+    
+      
+        <item>
+          <title>IntelliJ IDEA + JRebel セミナーを開催しました</title>
+          <link>http://tech.uzabase.com/entry/2015/03/30/175726</link>
+          <description>&lt;p&gt;NewsPicks 開発チームの文字です。&lt;/p&gt;
+
+&lt;p&gt;先週の金曜日、株式会社サムライズムの山本裕介さん（&lt;a href=&quot;https://twitter.com/yusuke&quot;&gt;@yusuke&lt;/a&gt;）に弊社オフィスまで来て頂き、IntelliJ IDEA + JRebel のセミナーを開催して頂きました。&lt;/p&gt;
+
+&lt;p&gt;&lt;span itemscope itemtype=&quot;http://schema.org/Photograph&quot;&gt;&lt;img src=&quot;http://cdn-ak.f.st-hatena.com/images/fotolife/u/uzabase/20150329/20150329161416.jpg&quot; alt=&quot;f:id:uzabase:20150329161416j:plain&quot; title=&quot;f:id:uzabase:20150329161416j:plain&quot; class=&quot;hatena-fotolife&quot; itemprop=&quot;image&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;弊社は SPEEDA / NewsPicks ともにサーバーサイドの実装に Java を利用しています。私自身や一部メンバーは IntelliJ IDEA を使っているのですが、使い慣れた Eclipse を利用しているメンバーも多いため、今回 Eclipse から IntelliJ IDEA への移行を検討するためにセミナーを開いて頂きました（ちなみに iOS 開発を行っているメンバーは App Code を利用しています）。加えて、SPEEDA 開発チームで導入を検討している JRebel のデモも行って頂きました。&lt;/p&gt;
+
+&lt;p&gt;私が Eclipse から IntelliJ IDEA に移行したのは半年ほど前ですが、既に Eclipse に戻れなくなりつつあります。要因は幾つかあるのですが、パッと思い付くところだと以下でしょうか。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;全体的に動作が軽い・速い&lt;/li&gt;
+&lt;li&gt;デバッグ時の変数内容表示が使いやすい&lt;/li&gt;
+&lt;li&gt;プラグインが無くてもデフォルトで様々な言語／フレームワークのサポートがある&lt;/li&gt;
+&lt;li&gt;Postfix Completion が使いやすい&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;総じて何もセットアップしなくても「痒いところに手が届く」IDE になっているのが魅力だなと感じています。Eclipse 時代には何かとプラグインを自作していましたが、IntelliJ IDEA では大抵のものは標準でサポートされています。&lt;/p&gt;
+
+&lt;p&gt;@yusuke さんのデモを見て私自身も様々な機能を知らなかったことに今更ながら気付きましたが（恥ずかしながら Chronon Debug や Live Edit・BTS 連携などは全く知りませんでした）、社内の開発メンバーも Postfix Completion を始めとした IntelliJ IDEA の様々な機能に驚きの声を上げており、本格的にチームでの導入を検討しようかという声もありました。&lt;/p&gt;
+
+&lt;p&gt;非常に勉強になるセッションでした。@yusuke さん、本当にありがとうございました！&lt;/p&gt;
+</description>
+          <pubDate>Mon, 30 Mar 2015 17:57:26 +0900</pubDate>
+          <guid isPermalink="false">hatenablog://entry/8454420450089701904</guid>
+          
+        </item>
+      
+    
+  </channel>
+</rss>
